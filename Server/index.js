@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/data/catalog', (req, res) => {
+    res.json([]);
+});
+
 app.use(routes);
 
 mongoose.connect('mongodb://localhost:27017/Mythify')
