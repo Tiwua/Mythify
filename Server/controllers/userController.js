@@ -19,6 +19,9 @@ router.post('/login', async (req, res) => {
     res.json(result);
 });
 
+router.get('/logout', async (req, res) => res.json({ok: true}));
+
+
 // router.post('/all', async (req, res) => {
 //     const {userId, email} = await userService.getAll();
 
