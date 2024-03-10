@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: 
+    linear-gradient(rgba(0,0,0,0.7), 
+    rgba(0,0,0,0.7)), url('https://media.istockphoto.com/id/172154640/vector/grunge-background.jpg?s=612x612&w=0&k=20&c=BjmWo2E8yvbPYSKRwJSpmI0p_sRjSGIov7NdYbzOf48=');
+    background-position: center;
+    background-size: cover;
+}
