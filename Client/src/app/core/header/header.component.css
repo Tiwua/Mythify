@@ -1,0 +1,43 @@
+.navbar {
+    background-color: #333;
+}
+
+.center-links {
+    flex: 10            ;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.account-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.navbar nav ul li {
+    display: inline-block;
+}
+
+.navbar nav ul li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #333;
+    background-color: #fff;
+    transform: scale(1.1);
+}
