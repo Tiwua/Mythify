@@ -3,6 +3,26 @@
     margin-left: 120px;
 }
 
-.form-v9-content {
-    background-image: url(../../../assets/images/dragon-left.jpg);
+@media screen and (max-width: 1199px) {
+	.form-v9-content {
+	    margin: 185px 20px;
+	}
+}
+@media screen and (max-width: 767px) {
+	.form-v9-content .form-row-total {
+		flex-direction: column;
+		-webkit-flex-direction: column;
+	}
+	.form-v9-content .form-row {
+		width: 100%;
+	}
+    .background-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
+@media screen and (max-width: 575px) {
+	.form-v9-content .form-detail {
+	    padding: 30px 45px 30px 10px;
+	}
 }

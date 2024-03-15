@@ -1,0 +1,53 @@
+/* Style for grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 5fr); /* 3 equal columns */
+    gap: 20px; /* Gap between columns and rows */
+    margin-bottom: 180px;
+  }
+  
+ /* Style for cards */
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    height: 650px;
+    position: relative; /* To enable absolute positioning for the image */
+  }
+  
+  .card h5 {
+    margin-bottom: 5px;
+  }
+  
+  .card p {
+    margin: 5px 0;
+  }
+  
+  .card img {
+    width: 350px; /* Set a big width */
+    height: 350px; /* Maintain aspect ratio */
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Style for pagination controls */
+  .pagination-controls {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 50px 100px;
+    cursor: pointer;
+    margin-top: 50px;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

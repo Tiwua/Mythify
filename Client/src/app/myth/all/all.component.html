@@ -1,0 +1,14 @@
+<div class="grid-container">
+  <div *ngFor="let myth of paginatedMyths" class="card">
+    <h5>{{ myth.title }}</h5>    
+    <p><strong>Origin:</strong> {{ myth.origin }}</p>
+    <p><strong>Description:</strong> {{ myth.description }}</p>
+    <img [src]="myth.image" alt="Myth Image">
+  </div>
+
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage(currentPage)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

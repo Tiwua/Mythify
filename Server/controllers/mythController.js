@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-    const newMyth= req.body;
+    const newMyth = req.body;
     console.log(req.body);
     //const userId = req.user;
     const myth = await mythService.create(newMyth);
@@ -17,9 +17,10 @@ router.post('/create', async (req, res) => {
 });
 
 router.get('/all', async (req, res) => {
-    const myths = await mythService.getAll();
+    const limit = Number(req.query.limit) || 0;
+    const myths = await mythService.getAll(limit);
 
-    res.json({myths});
+    res.json(myths);
 });
 
 module.exports = router;

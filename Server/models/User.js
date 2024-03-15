@@ -2,9 +2,26 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-    email: String,
-    password: String,
-    //rePass
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        minlength: ['5', 'Username should be at least 5 characters']
+    },
+    password: {
+        type: String,
+        required: true,
+        minlength: ['5', 'Password should be at least 5 characters']
+    },
+    createdMyths: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Myth'
+    }]
 });
 
 

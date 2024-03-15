@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
+import { MythModule } from './myth/myth.module';
+import { MythRoutingModule } from './myth/myth-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     CoreModule,
     UserModule,
+    MythModule,
+    HttpClientModule,
+    MythRoutingModule,
     AppRoutingModule,
   ],
   providers: [],
