@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, numberAttribute } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Myth } from 'src/app/types/myth';
 
@@ -46,5 +46,14 @@ export class AllComponent implements OnInit {
       this.currentPage--;
       this.paginateMyths();
     }
+  }
+
+  goToPage(page: number){
+    this.currentPage = page;
+    this.paginateMyths();
+  }
+
+  totalPagesArray(): number[] {
+    return Array.from({length: this.totalPages}, (_, i) => i + 1);
   }
 }

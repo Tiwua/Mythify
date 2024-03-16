@@ -1,14 +1,28 @@
 <div class="grid-container">
   <div *ngFor="let myth of paginatedMyths" class="card">
-    <h5>{{ myth.title }}</h5>    
-    <p><strong>Origin:</strong> {{ myth.origin }}</p>
-    <p><strong>Description:</strong> {{ myth.description }}</p>
-    <img [src]="myth.image" alt="Myth Image">
-  </div>
+    <div class="title-container">
+        <h5>{{ myth.title }}</h5>
+    </div>
+    <div class="image-container">
+        <img [src]="myth.image" alt="Myth Image">
+        <div class="description">
+            <p><strong>Origin:</strong> {{ myth.origin }}</p>
+            <p>{{ myth.description }}</p>
+        </div>
+    </div>
+</div>
 
-  <div class="pagination-controls">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
-    <span>Page {{ currentPage }} of {{ totalPages }}</span>
-    <button (click)="nextPage(currentPage)" [disabled]="currentPage === totalPages">Next</button>
-  </div>
+<div class="pagination-controls">
+  <button class="previous" (click)="prevPage()" [disabled]="currentPage === 1">
+    &larr;
+  </button>
+  <ng-container *ngFor="let page of totalPagesArray()">
+    <button (click)="goToPage(page)" [disabled]="currentPage === page">{{ page }}</button>
+  </ng-container>
+  <button class="next" (click)="nextPage(currentPage)" [disabled]="currentPage === totalPages">
+   &rarr;
+  </button>
+</div>
+
+
 </div>
