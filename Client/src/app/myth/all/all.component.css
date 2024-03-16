@@ -99,6 +99,7 @@
 
 .pagination-controls button.next {
   margin-left: auto;
+  margin-right: 70px;
 }
 
 .pagination-controls button:disabled {

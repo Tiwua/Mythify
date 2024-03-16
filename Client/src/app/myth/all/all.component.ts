@@ -1,4 +1,4 @@
-import { Component, OnInit, numberAttribute } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Myth } from 'src/app/types/myth';
 
@@ -12,6 +12,7 @@ export class AllComponent implements OnInit {
   paginatedMyths: Myth[] = [];
   mythsPerPage = 3;
   currentPage = 1;
+  visiblePages: number = 3;
 
   get totalPages(): number {
     return Math.ceil(this.myths.length / this.mythsPerPage);
@@ -36,9 +37,11 @@ export class AllComponent implements OnInit {
     this.paginatedMyths = this.myths.slice(startIdx, endIdx);
   }
 
-  nextPage(pageNumber: number): void {
-    this.currentPage = pageNumber + 1;
-    this.paginateMyths();
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.paginateMyths();
+    }
   }
 
   prevPage(): void {
@@ -48,12 +51,14 @@ export class AllComponent implements OnInit {
     }
   }
 
-  goToPage(page: number){
+  goToPage(page: number): void {
     this.currentPage = page;
     this.paginateMyths();
   }
 
   totalPagesArray(): number[] {
-    return Array.from({length: this.totalPages}, (_, i) => i + 1);
+    const startPage = Math.max(1, this.currentPage - Math.floor(this.visiblePages / 2));
+    const endPage = Math.min(this.totalPages, startPage + this.visiblePages - 1);
+    return Array.from({length: endPage - startPage + 1}, (_, i) => startPage + i);
   }
 }
