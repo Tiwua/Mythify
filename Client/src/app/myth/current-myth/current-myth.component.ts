@@ -22,7 +22,6 @@ export class CurrentMythComponent implements OnInit {
       this.apiService.getMyth(mythId).subscribe((myth) => {
         this.myth = myth;
         this.alignmentClass = this.isLeftAligned();
-        console.log(this.alignmentClass);
       });
     });
   }
