@@ -25,6 +25,6 @@ export class ApiService {
   }
 
   getMyth(mythId: string){
-    return this.http.get<Myth>(`${this.apiUrl}/${mythId}/details`);
+    return this.http.get<Myth>(`${this.apiUrl}/myths/${mythId}/details`);
   }
 }
