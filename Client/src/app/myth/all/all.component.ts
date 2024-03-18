@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
 import { Myth } from 'src/app/types/myth';
 
@@ -7,25 +8,36 @@ import { Myth } from 'src/app/types/myth';
   templateUrl: './all.component.html',
   styleUrls: ['./all.component.css']
 })
-export class AllComponent implements OnInit {
+export class AllComponent implements OnInit, OnDestroy {
   myths: Myth[] = [];
   paginatedMyths: Myth[] = [];
   mythsPerPage = 3;
   currentPage = 1;
   visiblePages: number = 3;
+  subscription: Subscription;
 
   get totalPages(): number {
     return Math.ceil(this.myths.length / this.mythsPerPage);
   }
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {
+    this.subscription = new Subscription;
+  }
 
   ngOnInit(): void {
     this.fetchMyths();
   }
 
+  ngOnDestroy(): void {
+    
+    if(this.subscription){
+
+      this.subscription.unsubscribe();
+    }
+  }
+
   fetchMyths(): void {
-    this.apiService.getMyths().subscribe((myths) => {
+    this.subscription = this.apiService.getMyths().subscribe((myths) => {
       this.myths = myths;
       this.paginateMyths();
     });
@@ -55,6 +67,8 @@ export class AllComponent implements OnInit {
     this.currentPage = page;
     this.paginateMyths();
   }
+
+  
 
   totalPagesArray(): number[] {
     const startPage = Math.max(1, this.currentPage - Math.floor(this.visiblePages / 2));

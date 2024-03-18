@@ -12,7 +12,6 @@ export class ApiService {
   getMyths(limit?: number){
     let apiUrl = 'http://localhost:5000/myths/all'
 
-    console.log(limit);
     if(limit){
       apiUrl = `http://localhost:5000/myths/all?limit=${limit}`;
     }
