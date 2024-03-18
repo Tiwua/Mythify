@@ -23,4 +23,11 @@ router.get('/all', async (req, res) => {
     res.json(myths);
 });
 
+router.get('/:mythId/details', async (req, res) => {
+    const mythId = req.params.mythId;
+    const myth = await mythService.getOneById(mythId);
+
+    res.json(myth);
+}); 
+
 module.exports = router;

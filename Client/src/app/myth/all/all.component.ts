@@ -38,7 +38,6 @@ export class AllComponent implements OnInit, OnDestroy {
 
   fetchMyths(): void {
     this.subscription = this.apiService.getMyths().subscribe((myths) => {
-      console.log(myths);
       this.myths = myths;
       this.paginateMyths();
     });
