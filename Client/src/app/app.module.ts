@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { MythModule } from './myth/myth.module';
 import { MythRoutingModule } from './myth/myth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

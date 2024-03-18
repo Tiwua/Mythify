@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
+import { CurrentMythComponent } from './current-myth/current-myth.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
     { path:'all', component: AllComponent },
     { path:'create', component: CreateComponent },
     { path:'edit', component: EditComponent },
+    { path: ':mythId/details', component: CurrentMythComponent, pathMatch: 'full' },
   ]}
 ]
 

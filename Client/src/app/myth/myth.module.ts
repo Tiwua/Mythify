@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { AllComponent } from './all/all.component';
+import { CurrentMythComponent } from './current-myth/current-myth.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -10,10 +12,12 @@ import { AllComponent } from './all/all.component';
   declarations: [
     CreateComponent,
     EditComponent,
-    AllComponent
+    AllComponent,
+    CurrentMythComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     CreateComponent,
