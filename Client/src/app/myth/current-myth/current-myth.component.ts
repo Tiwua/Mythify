@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Myth } from 'src/app/types/myth';
@@ -9,18 +9,26 @@ import { Myth } from 'src/app/types/myth';
   styleUrls: ['./current-myth.component.css']
 })
 export class CurrentMythComponent implements OnInit {
+  myth = {} as Myth;
+  alignmentClass: string = '';
 
-  myth: any = [];
   constructor(
     private apiService: ApiService, 
     private activeRoute: ActivatedRoute){}
 
-    ngOnInit(): void {
-      this.activeRoute.params.subscribe((data) => {
-        const mythId = data['mythId'];
-        console.log(data);
-        console.log(mythId);
-        this.apiService.getMyth(mythId);
+  ngOnInit(): void {
+    this.activeRoute.params.subscribe((data) => {
+      const mythId = data['mythId'];
+      this.apiService.getMyth(mythId).subscribe((myth) => {
+        this.myth = myth;
+        this.alignmentClass = this.isLeftAligned();
+        console.log(this.alignmentClass);
       });
-    }
+    });
+  }
+
+  isLeftAligned(): string {
+    const isAlignedLeft = Math.random() < 0.5;
+    return isAlignedLeft ? 'align-left' : 'align-right';
+  }
 }

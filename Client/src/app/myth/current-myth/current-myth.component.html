@@ -1,1 +1,17 @@
-<p>current-myth works!</p>
+<div [ngClass]="alignmentClass" class="details-container">
+    <div class="text-container">
+        <h2>{{ myth.title }}</h2>
+        <div class="details">   
+            <p><strong>Origin:</strong> {{ myth.origin }}</p>
+            <p> {{ myth.description }} </p>
+        </div>
+        <div class="buttons">
+            <button class="btn-like">Like</button>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+        </div>
+    </div>
+    <div class="image-container">
+        <img [src]="myth.image" alt="Myth Image">
+    </div>
+</div>
