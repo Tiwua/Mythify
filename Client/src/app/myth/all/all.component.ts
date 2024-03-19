@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { ApiService } from 'src/app/api.service';
 import { Myth } from 'src/app/types/myth';
 
