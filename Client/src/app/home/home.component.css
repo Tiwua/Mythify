@@ -1,8 +1,8 @@
 .row{
     display: flex;
-    height: 88%;
+    height: 100%;
     align-items: center;
-    margin-bottom: 5%;
+    margin-bottom: -180px;
 }
 .col{
     flex-basis: 50%;
