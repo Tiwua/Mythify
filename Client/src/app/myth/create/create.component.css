@@ -1,0 +1,60 @@
+.container {
+    font-family: Arial, sans-serif;
+    padding: 50px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    background-image: linear-gradient(rgba(0,0,0,0.4), 
+    rgba(0,0,0,0.7)), url('https://cdn.pixabay.com/photo/2017/09/15/02/22/fantasy-2750995_1280.jpg');
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 1); 
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    border-radius: 5px;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    color: white;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 20px;
+    border: 1px solid #00000046;
+    border-radius: 10px;
+    align-items: center;
+    max-height: 100px;
+    max-width: 100%;
+    min-width: 100%;    
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.582);
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
