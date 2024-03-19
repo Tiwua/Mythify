@@ -13,7 +13,7 @@ export class AllComponent implements OnInit, OnDestroy {
   paginatedMyths: Myth[] = [];
   mythsPerPage = 3;
   currentPage = 1;
-  visiblePages: number = 3;
+  visiblePages = 3;
   subscription: Subscription;
 
   get totalPages(): number {
@@ -21,7 +21,7 @@ export class AllComponent implements OnInit, OnDestroy {
   }
 
   constructor(private apiService: ApiService) {
-    this.subscription = new Subscription;
+    this.subscription = new Subscription();
   }
 
   ngOnInit(): void {
@@ -29,11 +29,7 @@ export class AllComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    
-    if(this.subscription){
-
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 
   fetchMyths(): void {
@@ -67,8 +63,6 @@ export class AllComponent implements OnInit, OnDestroy {
     this.currentPage = page;
     this.paginateMyths();
   }
-
-  
 
   totalPagesArray(): number[] {
     const startPage = Math.max(1, this.currentPage - Math.floor(this.visiblePages / 2));

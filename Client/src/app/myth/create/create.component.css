@@ -1,5 +1,4 @@
 .container {
-    font-family: Arial, sans-serif;
     padding: 50px;
     margin-top: 50px;
     margin-bottom: 70px;
@@ -62,4 +61,9 @@ button {
 button:hover {
     background-color: #ffffff;
     color: black;
+}
+
+input::placeholder {
+    color: #7a7a7a;
+    font-style: bold;
 }
