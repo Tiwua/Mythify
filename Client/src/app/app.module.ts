@@ -9,16 +9,17 @@ import { UserModule } from './user/user.module';
 import { MythModule } from './myth/myth.module';
 import { MythRoutingModule } from './myth/myth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
+    SharedModule,
     UserModule,
     MythModule,
     HttpClientModule,

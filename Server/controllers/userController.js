@@ -6,7 +6,6 @@ router.post('/register', async (req, res) => {
     const userData = req.body;
 
     const result = await userService.register(userData);
-    console.log(result);
 
     res.json(result);
 });

@@ -1,23 +1,26 @@
 <body class="form-v9">
 	<div class="page-content">
 		<div class="form-v9-content" style="background-image: url(../../../assets/images/dragon-right.jpg)">
-			<form class="form-detail" action="#" method="post">
+			<form class="form-detail" action="#" method="post" [formGroup]="form" (ngSubmit)="register()">
 				<h2>Register</h2>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Name" required>
+						<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Username" formControlName="username" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+						<input type="text" name="your-email" id="your-email" class="input-text" formControlName="email" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 					</div>
 				</div>
 				<div class="form-row-total">
-					<div class="form-row">
-						<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
-					</div>
-					<div class="form-row">
-						<input type="password" name="comfirm-password" id="comfirm-password" class="input-text" placeholder="Comfirm Password" required>
-					</div>
+					<ng-container formGroupName="passwordGroup">
+						
+						<div class="form-row">
+							<input type="password" name="password" id="password" class="input-text" formControlName="password" placeholder="Your Password" required>
+						</div>
+						<div class="form-row">
+							<input type="password" name="comfirm-password" id="comfirm-password" class="input-text"  formControlName="confirmPassword" placeholder="Comfirm Password" required>
+						</div>
+					</ng-container>
 				</div>
 				<div class="form-row-last">
 					<input type="submit" name="form-btn" class="form-btn" value="Register">
