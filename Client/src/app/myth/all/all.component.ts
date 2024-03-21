@@ -37,6 +37,8 @@ export class AllComponent implements OnInit, OnDestroy {
     this.subscription = this.apiService.getMyths().subscribe((myths) => {
       this.myths = myths;
       this.paginateMyths();
+    },(error) => {   
+      console.error('An error occurred:', error['statusText']);
     });
   }
 
