@@ -67,3 +67,14 @@ input::placeholder {
     color: #7a7a7a;
     font-style: bold;
 }
+
+@media screen and (max-width: 576px) {
+    .container {
+        margin-left: -30px;
+        max-width: 80%;
+    }
+
+    form {
+        width: 90%;
+    }
+}
