@@ -6,7 +6,7 @@
     margin-right: auto;
     width: 450px;
     background-image: linear-gradient(rgba(0,0,0,0.4), 
-    rgba(0,0,0,0.7)), url('https://cdn.pixabay.com/photo/2017/09/15/02/22/fantasy-2750995_1280.jpg');
+    rgba(0,0,0,0.7)), url('../../../assets/images/main-background.jpg');
     border: 1px solid #ccc;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 1); 

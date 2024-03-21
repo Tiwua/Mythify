@@ -7,11 +7,12 @@
 
 .align-left .text-container {
     order: 2;
+    width: 100%;
 }
 
 .align-left .image-container {
     order: 1;
-    margin-left: 650px;
+    margin-left: 550px;
 }
 
 .align-right .text-container {
