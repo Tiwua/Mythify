@@ -8,7 +8,16 @@
 						<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Username" formControlName="username" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="your-email" id="your-email" class="input-text" formControlName="email" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+						<input type="text" name="your-email" id="your-email" class="input-text" formControlName="email" placeholder="Your Email" required formControlName="email">
+						<ng-container *ngIf="form.get('email')?.touched">
+							<p class="error" *ngIf="form.get('email')?.errors?.['required']">
+								Email is required!
+							</p>
+							<p class="error" *ngIf="form.get('email')?.errors?.['emailValidator']">
+								Email is not valid!
+							</p>
+						</ng-container>
+						
 					</div>
 				</div>
 				<div class="form-row-total">
@@ -20,6 +29,12 @@
 						<div class="form-row">
 							<input type="password" name="comfirm-password" id="comfirm-password" class="input-text"  formControlName="confirmPassword" placeholder="Comfirm Password" required>
 						</div>
+						<ng-container *ngIf="passwordGroup?.get('confirmPassword')?.touched">
+							<p class="error-pass" *ngIf="passwordGroup?.errors?.['matchPasswords'] ||
+							passwordGroup?.get('confirmPassword')?.errors?.['required']">
+								Passwords do not match!
+							</p>
+						</ng-container>
 					</ng-container>
 				</div>
 				<div class="form-row-last">

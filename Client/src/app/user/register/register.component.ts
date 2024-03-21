@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { emailValidator } from 'src/app/shared/utils/emailValidator';
+import { matchPasswords } from 'src/app/shared/utils/matchPasswords';
 
 @Component({
   selector: 'app-register',
@@ -8,11 +10,20 @@ import { FormBuilder } from '@angular/forms';
 })
 export class RegisterComponent {
   form = this.formBuilder.group({
-    username: ['gosho'],
-    email: ['gosho@abv.bg'],
-    passwordGroup: this.formBuilder.group({password: ['asdasd'], confirmPassword: ['asdasd']}),
+    username: ['', [Validators.required, Validators.minLength(5)]],
+    email: ['', [Validators.required, emailValidator()]],
+    passwordGroup: this.formBuilder.group({
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+    }, 
+    {
+      validators: [matchPasswords('password', 'confirmPassword')]
+    }),
   });
 
+  get passwordGroup(){
+    return this.form.get('passwordGroup');
+  }
 
   constructor(private formBuilder: FormBuilder) {
 
