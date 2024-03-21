@@ -4,8 +4,7 @@
 }
 
 .center-links {
-    flex: 10;
-    margin-right: auto;
+    flex: 1; 
     display: flex;
     justify-content: center;
 }
@@ -20,22 +19,40 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; 
+    justify-content: center;
     text-align: center;
     align-items: center;
 }
 
 .navbar nav ul li {
     display: inline-block;
+    margin: 5px;
 }
 
 .navbar nav ul li a {
     display: block;
     color: #fff;
     text-decoration: none;
-    padding: 15px 25px;
-    font-size: 18px;
+    padding: 10px 20px; 
+    font-size: 16px;
     transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 575px) {
+    .center-links {
+        flex: auto; 
+    }
+
+    .navbar nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .navbar nav ul li a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
 }
 
 .navbar nav ul li a:hover {
