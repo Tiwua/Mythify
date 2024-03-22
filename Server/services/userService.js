@@ -43,5 +43,5 @@ function generateAccessToken(user) {
     }, '4X5TY98KX45Y89UMC45YT8UK90');
 
 
-    return{ _id: user._id, email: user.email, accessToken: accessToken }
+    return accessToken;
 }

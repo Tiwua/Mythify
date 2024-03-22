@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { emailValidator } from 'src/app/shared/utils/emailValidator';
 import { matchPasswords } from 'src/app/shared/utils/matchPasswords';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +10,7 @@ import { matchPasswords } from 'src/app/shared/utils/matchPasswords';
   styleUrls: ['./register.component.css', '../common/post-form.css']
 })
 export class RegisterComponent {
+
   form = this.formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, emailValidator()]],
@@ -25,7 +27,7 @@ export class RegisterComponent {
     return this.form.get('passwordGroup');
   }
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {
 
   }
 
@@ -34,6 +36,11 @@ export class RegisterComponent {
       return;
     }
 
-    console.log(this.form.value);
+    const { email, username, passwordGroup } = this.form.value;
+    const { password, confirmPassword } = passwordGroup!
+
+    this.userService.register(username!, email!, password!, confirmPassword!).subscribe(() => {
+      console.log('done');
+    });
   }
 }
