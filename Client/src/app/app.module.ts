@@ -10,6 +10,7 @@ import { MythModule } from './myth/myth.module';
 import { MythRoutingModule } from './myth/myth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { appInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { SharedModule } from './shared/shared.module';
     MythRoutingModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
