@@ -14,14 +14,12 @@ export class FooterComponent implements OnInit, OnDestroy {
     ngOnInit() {
         if (!this.timeoutId) {
             this.timeoutId = setTimeout(() => {
-              console.log(this.showFooter)
                 this.showFooter = true;
             }, 100);
         }
     }
 
     ngOnDestroy() {
-        console.log(this.showFooter);
         this.showFooter = false;
         if (this.timeoutId) {
             clearTimeout(this.timeoutId);
