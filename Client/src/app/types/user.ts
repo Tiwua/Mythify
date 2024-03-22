@@ -5,3 +5,11 @@ export interface User{
     password: string,
     createdMyths: string[];
 }
+
+export interface UserAuth{
+    id: string;
+    email: string;
+    username: string;
+    password: string;
+    confirmPassword: string
+}
