@@ -33,6 +33,12 @@ exports.getAll = async ()  => {
     return users;
 };
 
+exports.getUserId = async (userEmail) => {
+    const user = await User.findOne({email: userEmail});
+
+    return user._id;
+}
+
 function generateAccessToken(user) {
     
     const accessToken = jwt.sign({

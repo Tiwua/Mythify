@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-create',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class CreateComponent {
 
+  constructor(private userService: UserService) {}
+
+  createMyth(){
+    const userId = this.userService.getUserId();
+    console.log(userId);
+    
+  }
 }

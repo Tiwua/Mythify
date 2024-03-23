@@ -20,6 +20,10 @@ export class UserService implements OnDestroy {
     return !!this.user;
   }
 
+  getUserId(): string | undefined {
+    return this.user?.id;
+  }
+
   private apiUrl: string 
   constructor(private http: HttpClient) { 
     this.subscription = this.user$.subscribe(user => {
@@ -32,6 +36,7 @@ export class UserService implements OnDestroy {
     return this.http.post<UserAuth>(`${this.apiUrl}/users/login`, { email, password })
     .pipe(
       tap((user) => {
+        
         this.user$$.next(user);
     }));
   }
