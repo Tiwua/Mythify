@@ -10,6 +10,17 @@ exports.getAll = async (limit) => {
     return await Myth.find();
 }
 
+exports.getMostPopular = async (limit) => {
+
+    if (limit > 0) {
+        return await Myth.find().sort({ likes: -1 }).limit(limit);
+    }
+
+    return await Myth.find().sort({ likes: -1 });
+}
+
+
+
 exports.getOneById = async (mythId) => await Myth.findById(mythId);
 
 exports.create = async (mythData) => {
@@ -17,3 +28,5 @@ exports.create = async (mythData) => {
 
     await Myth.create(mythData);
 }
+
+exports.like = async (mythId, userId) => await Myth.findByIdAndUpdate(mythId, { $push: {favoriteList: userId }});

@@ -2,7 +2,8 @@ const router = require('express').Router();
 const mythService = require('../services/mythService');
 
 router.get('/', async (req, res) => {
-    const myths = await mythService.getAll();
+    const limit = Number(req.query.limit) || 0;
+    const myths = await mythService.getMostPopular(limit);
 
     res.json(myths);
 });
@@ -28,6 +29,15 @@ router.get('/:mythId/details', async (req, res) => {
     const myth = await mythService.getOneById(mythId);
 
     res.json(myth);
-}); 
+});
+
+router.post('/:mythId/like', async (req, res) => {
+    const mythId = req.params.mythId;
+    const userId = req.userId;
+    
+    await mythService.likeMyth(mythId, userId);
+
+    res.json({ message: "Successful in liking a myth" });
+});
 
 module.exports = router;
