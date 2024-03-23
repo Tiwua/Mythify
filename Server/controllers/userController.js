@@ -16,7 +16,6 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const userData = req.body;
-    console.log('hello');
     const accessToken = await userService.login(userData);
 
     res.cookie("auth", accessToken, {
@@ -26,7 +25,11 @@ router.post('/login', async (req, res) => {
     }).json({ message: 'User logged in successfully' });
 });
 
-router.get('/logout', async (req, res) => res.clearCookie("auth"));
+router.post('/logout', async (req, res) => {
+    
+    res.clearCookie("auth").json({ message: 'User logged out successfully' });
+});
+
 
 
 // router.post('/all', async (req, res) => {

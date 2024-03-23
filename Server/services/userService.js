@@ -14,7 +14,6 @@ exports.register = async (userData) => {
 
 exports.login = async (userData) => {
     const user = await User.findOne({ email: userData.email});
-    console.log('hi');
     if(!user){
         throw new Error("Invalid login!");
     }
@@ -30,7 +29,6 @@ exports.login = async (userData) => {
 
 exports.getAll = async ()  => {
     const users = await User.find();
-    console.log(users);
 
     return users;
 };
