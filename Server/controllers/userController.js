@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const userData = req.body;
-
+    console.log('hello');
     const accessToken = await userService.login(userData);
 
     res.cookie("auth", accessToken, {

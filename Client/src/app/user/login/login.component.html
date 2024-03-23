@@ -5,8 +5,8 @@
 				<h2>Login</h2>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" name="your-email" ngModel #inputEmail="ngModel" id="your-email" class="input-text" placeholder="Your Email" 
-						required appEmail>
+						<input type="text" name="email" ngModel id="your-email" class="input-text" placeholder="Your Email" 
+						ngModel #inputEmail="ngModel" required appEmail>
 						</div>
 				</div>
 				<ng-container *ngIf="inputEmail.touched">
@@ -19,7 +19,9 @@
 				  </ng-container>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
+						<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" 
+						ngModel #inputPassword="ngModel" required required
+						minlength="5">
 					</div>
 				</div>
 				<div class="form-row-last">
