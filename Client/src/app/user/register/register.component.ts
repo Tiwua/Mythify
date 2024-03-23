@@ -3,6 +3,7 @@ import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { emailValidator } from 'src/app/shared/utils/emailValidator';
 import { matchPasswords } from 'src/app/shared/utils/matchPasswords';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,7 @@ export class RegisterComponent {
     return this.form.get('passwordGroup');
   }
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
 
   }
 
@@ -40,7 +41,7 @@ export class RegisterComponent {
     const { password, confirmPassword } = passwordGroup!
 
     this.userService.register(username!, email!, password!, confirmPassword!).subscribe(() => {
-      console.log('done');
+      this.router.navigate(['/home']);
     });
   }
 }
