@@ -10,9 +10,8 @@ router.get('/', async (req, res) => {
 
 router.post('/create', async (req, res) => {
     const newMyth = req.body;
-    console.log(req.body);
-    //const userId = req.user;
-    const myth = await mythService.create(newMyth);
+    const userId = req.body.ownerId;
+    const myth = await mythService.create(userId, newMyth);
 
     res.json(myth);
 });

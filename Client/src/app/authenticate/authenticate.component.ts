@@ -8,12 +8,12 @@ import { UserService } from '../user/user.service';
 })
 export class AuthenticateComponent implements OnInit {
   isAuthenticating = true;
-
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
       this.userService.checkIfUserIsLogged().subscribe({
-        next: () => {
+        next: (user) => {
+          console.log(`from auth ${user.id}`);
           this.isAuthenticating = false;
         },
         error: () => {

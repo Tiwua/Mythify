@@ -9,7 +9,7 @@ const mythSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    year: {
+    timeline: {
         type: String,
         required: true
     },

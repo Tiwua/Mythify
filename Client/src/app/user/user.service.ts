@@ -23,6 +23,7 @@ export class UserService implements OnDestroy {
   getUserId(): string | undefined {
     return this.user?.id;
   }
+  
 
   private apiUrl: string 
   constructor(private http: HttpClient) { 

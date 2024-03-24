@@ -27,4 +27,8 @@ export class ApiService {
   getMyth(mythId: string){
     return this.http.get<Myth>(`${this.apiUrl}/myths/${mythId}/details`);
   }
+
+  createMyth(title: string, origin: string, timeline: string, description: string, image: string, ownerId: string) {
+    return this.http.post<Myth>(`${this.apiUrl}/myths/create`, { title, origin, timeline, description, image, ownerId });
+  }
 }

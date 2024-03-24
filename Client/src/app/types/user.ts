@@ -13,3 +13,4 @@ export interface UserAuth{
     password: string;
     confirmPassword: string
 }
+

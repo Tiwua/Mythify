@@ -23,10 +23,12 @@ exports.getMostPopular = async (limit) => {
 
 exports.getOneById = async (mythId) => await Myth.findById(mythId);
 
-exports.create = async (mythData) => {
-    //mythData.ownerId = '65e4f5d739a62ed0a0329ff3';
-
-    await Myth.create(mythData);
+exports.create = async (userId, mythData) => {
+    console.log(userId)
+    console.log({...mythData})
+    //await Myth.create({ ownerId: userId, ...mythData});
 }
+
+exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(3);
 
 exports.like = async (mythId, userId) => await Myth.findByIdAndUpdate(mythId, { $push: {favoriteList: userId }});
