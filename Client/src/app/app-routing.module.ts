@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
    { path: '', pathMatch: 'full', redirectTo: '/home' },
    { path: 'home', component: HomeComponent },
+   { 
+     path: 'myth', loadChildren: () => import('./myth/myth.module').then((m) => m.MythModule)
+   }
   //  { path: '**', redirectTo: '/404' },
   //  { path: '404', component: ErrorComponent }
 ];

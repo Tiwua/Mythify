@@ -39,6 +39,10 @@ exports.getUserId = async (userEmail) => {
     return user._id;
 }
 
+exports.decodeCookie = (cookie) => {
+    return jwt.decode(cookie);
+}
+
 function generateAccessToken(user) {
     
     const accessToken = jwt.sign({
