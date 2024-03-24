@@ -11,18 +11,19 @@ import { MythRoutingModule } from './myth/myth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule,
     UserModule,
-    MythModule,
     HttpClientModule,
     MythRoutingModule,
     AppRoutingModule,

@@ -1,5 +1,6 @@
-<app-header />
-<router-outlet />
+<app-authenticate>
+    <app-header />
+        <router-outlet />
+    <app-footer *ngIf="footerLoaded"/>
+</app-authenticate>
 
-
-<app-footer *ngIf="footerLoaded"/>

@@ -5,6 +5,7 @@ import { EditComponent } from './edit/edit.component';
 import { AllComponent } from './all/all.component';
 import { CurrentMythComponent } from './current-myth/current-myth.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +18,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
   ],
   exports: [

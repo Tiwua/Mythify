@@ -60,6 +60,16 @@ export class UserService implements OnDestroy {
         }));;
   };
 
+  checkIfUserIsLogged(){
+    console.log(`${this.apiUrl}/users/auth`);
+    
+
+    return this.http.get<UserAuth>(`${this.apiUrl}/users/auth`)
+    .pipe(tap((user) => this.user$$.next(user)));;
+
+
+  }
+
   ngOnDestroy(): void {
       this.subscription.unsubscribe();
   }
