@@ -4,14 +4,15 @@ import { AllComponent } from './all/all.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { CurrentMythComponent } from './current-myth/current-myth.component';
+import { AuthActivate } from '../guard/auth.activate';
 
 
 const routes: Routes = [
   { path:'myths', children: [
     { path:'all', component: AllComponent },
-    { path:'create', component: CreateComponent },
-    { path:'edit', component: EditComponent },
-    { path: ':mythId/details', component: CurrentMythComponent, pathMatch: 'full' },
+    { path:'create', component: CreateComponent, canActivate: [AuthActivate] },
+    { path:'edit', component: EditComponent, canActivate: [AuthActivate] },
+    { path: ':mythId/details', component: CurrentMythComponent, pathMatch: 'full', },
   ]}
 ]
 
