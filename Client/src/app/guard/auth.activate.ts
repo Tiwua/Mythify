@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
+import { Observable } from "rxjs";
 import { UserService } from "../user/user.service";
 
 
@@ -8,11 +9,13 @@ export class AuthActivate {
 
     constructor(private userService: UserService, private router: Router){}
 
-    canActivate(
-        route: ActivatedRouteSnapshot, 
-        state: RouterStateSnapshot): 
-        boolean {
-          this.router.navigate(['/login']);
-          return this.userService.isLogged; 
+    canActivate(): boolean {
+        console.log(this.userService.isLogged);
+        if (this.userService.isLogged) {
+          return true;
+        } else {
+          this.router.navigate(['/home']);
+          return false;
+        }
     }
 }

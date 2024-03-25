@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-
   ngOnInit(): void {
-      
   }
 
   ngOnDestroy(): void {

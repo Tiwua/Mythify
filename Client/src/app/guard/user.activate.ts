@@ -1,23 +1,20 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { UserService } from "../user/user.service";
-
+import { Observable } from "rxjs";
 
 @Injectable({ providedIn: "root" })
-export class UserActivate  {
+export class UserActivate implements CanActivate {
 
     constructor(private userService: UserService, private router: Router) {}
 
-    canActivate(
-        route: ActivatedRouteSnapshot, 
-        state: RouterStateSnapshot): 
-        boolean {
-        if (!this.userService.isLogged) {
-
-            this.router.navigate(['/home']); 
+    canActivate(): boolean {
+        console.log(this.userService.isLogged);
+        if (this.userService.isLogged) {
+            this.router.navigate(['/home']);
             return false;
-        } 
-
-        return true;
+        } else {
+          return true;
+        }
     }
 }

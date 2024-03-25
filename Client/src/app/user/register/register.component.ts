@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { emailValidator } from 'src/app/shared/utils/emailValidator';
 import { matchPasswords } from 'src/app/shared/utils/matchPasswords';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css', '../common/post-form.css']
 })
-export class RegisterComponent {
+export class RegisterComponent  {
 
   form = this.formBuilder.group({
     username: ['', [Validators.required, Validators.minLength(5)]],

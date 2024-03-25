@@ -7,6 +7,9 @@ const routes: Routes = [
    { path: 'home', component: HomeComponent },
    { 
      path: 'myth', loadChildren: () => import('./myth/myth.module').then((m) => m.MythModule)
+   },
+   { 
+    path: 'user', loadChildren: () => import('./user/user.module').then((u) => u.UserModule)
    }
   //  { path: '**', redirectTo: '/404' },
   //  { path: '404', component: ErrorComponent }
