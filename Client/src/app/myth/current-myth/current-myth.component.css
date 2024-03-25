@@ -12,7 +12,7 @@
 
 .align-left .image-container {
     order: 1;
-    margin-left: 550px;
+    margin-left: 400px;
 }
 
 .align-right .text-container {
@@ -24,9 +24,10 @@
 }
 
 .text-container {
+    position: relative;
     flex-grow: 1;
     max-width: 500px;
-    max-height: auto;
+    height: auto;
     color: white;
     border: 3px solid red;
     border-radius: 10px;
@@ -36,7 +37,17 @@
     margin-left: 50px;
     margin-top: 100px; 
     font-size: 19px;
-    align-items: center; 
+}
+
+.text-container h2, p {
+    text-align: center;
+}
+
+.text-container .buttons {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .image-container {
@@ -58,21 +69,30 @@
 }
 
 .btn-like, .btn-edit, .btn-delete {
+    font-weight: bold;
+    font-size: 15px;
     display: inline-block;
     padding: 8px 16px;
     margin-right: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    height: 40px;
+    width: auto;
+    background-color:white;
+    color: rgba(0, 0, 0, 0.767);
+    border: 1px;
+    border-radius: 10px;
     cursor: pointer;
+    position: relative;
+    bottom: 0;
 }
 
 .btn-like:hover, .btn-edit:hover, .btn-delete:hover {
-    background-color: #45a049;
+    background-color: rgba(255, 255, 255, 0.253);
+    transition: 0.2s;
+    transform: scale(1.2);
+    color:azure
 }
 
 .buttons{
-    margin-left: 150px;
-    margin-top: 50px;
+    position: bottom;
+    text-align: center;
 }
