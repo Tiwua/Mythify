@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authenticate',
@@ -11,17 +12,19 @@ export class AuthenticateComponent implements OnInit {
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
-      this.userService.checkIfUserIsLogged().subscribe({
-        next: (user) => {
-          console.log(`from auth ${user.id}`);
-          this.isAuthenticating = false;
-        },
-        error: () => {
-          this.isAuthenticating = false;
-        },
-        complete: () => {
-          this.isAuthenticating = false;
-        },
-      });
+
+    this.userService.getUser().subscribe({
+      next: (user) => {
+        this.userService.userRefresh = user
+        console.log(this.userService.userRefresh._id);
+        this.isAuthenticating = true;
+      },
+      error: () => {
+        this.isAuthenticating = false;
+      },
+      complete: () => {
+        this.isAuthenticating = false;
+      },
+    });
   }
 }

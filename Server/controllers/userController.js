@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: 'none',
-    }).json({ message: 'User logged in successfully', id: (await (userService.getUserId(email))).toString()});
+    }).json({ message: 'User logged in successfully', id: (await (userService.getUserIdFromEmail(email))).toString()});
 });
 
 router.post('/logout', async (req, res) => {
@@ -42,6 +42,18 @@ router.get('/auth', async (req, res) => {
     const decodedCookie = userService.decodeCookie(cookie);
 
     res.json(isAuthorized);
+});
+
+router.get('/info', async (req, res) => {
+    const cookie = req.cookies.auth;
+
+    if(cookie === undefined){
+        return res.json('Log in');
+    }
+    const decodedCookie = userService.decodeCookie(cookie);
+    const user = await userService.getUserFromCookie(decodedCookie);
+
+    res.json(user);
 });
 
 // router.post('/all', async (req, res) => {

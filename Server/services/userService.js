@@ -33,15 +33,23 @@ exports.getAll = async ()  => {
     return users;
 };
 
-exports.getUserId = async (userEmail) => {
+exports.getUserIdFromEmail = async (userEmail) => {
     const user = await User.findOne({email: userEmail});
 
     return user._id;
 }
 
+exports.getUser = async (userId) => {
+    const user = await User.findById(userId);
+
+    return user;
+}
+
 exports.decodeCookie = (cookie) => {
     return jwt.decode(cookie);
 }
+
+exports.getUserFromCookie = (cookie) => this.getUser(cookie._id)
 
 function generateAccessToken(user) {
     

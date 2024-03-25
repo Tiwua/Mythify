@@ -19,7 +19,7 @@ export class HeaderComponent {
       this.router.navigate(['/home']);
     }, 
     error: () => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/user/login']);
     },
   });
   }

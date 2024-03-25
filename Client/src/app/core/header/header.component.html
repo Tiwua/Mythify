@@ -9,9 +9,9 @@
                 <li><a href="#">About</a></li>
             </div>
             <div class="account-links">
-                <li><a routerLink="/user/login">Login</a></li>
-                <li><a routerLink="/user/register">Register</a></li>
                 <div *ngIf="!isLoggedIn">
+                    <li><a routerLink="/user/login">Login</a></li>
+                    <li><a routerLink="/user/register">Register</a></li>
                 </div>
 
                 <li *ngIf="isLoggedIn" (click)="logout()"><a>Logout</a></li>
