@@ -14,9 +14,3 @@ export interface UserAuth{
     confirmPassword: string
 }
 
-export interface UserBasic{
-    _id: string;
-    email: string;
-    username: string;
-}
-
