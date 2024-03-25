@@ -49,7 +49,7 @@ exports.decodeCookie = (cookie) => {
     return jwt.decode(cookie);
 }
 
-exports.getUserFromCookie = (cookie) => this.getUser(cookie._id)
+exports.getUserFromCookie = async (cookie) => await User.findById(cookie._id, { password: 0, __v:0 })
 
 function generateAccessToken(user) {
     

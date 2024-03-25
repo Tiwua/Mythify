@@ -24,9 +24,7 @@ exports.getMostPopular = async (limit) => {
 exports.getOneById = async (mythId) => await Myth.findById(mythId);
 
 exports.create = async (userId, mythData) => {
-    console.log(userId)
-    console.log({...mythData})
-    //await Myth.create({ ownerId: userId, ...mythData});
+    await Myth.create({ ownerId: userId, ...mythData});
 }
 
 exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(3);

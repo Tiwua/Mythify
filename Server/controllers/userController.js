@@ -33,33 +33,11 @@ router.post('/logout', async (req, res) => {
 
 router.get('/auth', async (req, res) => {
     const cookie = req.cookies.auth;
-    let isAuthorized = false;
-
-    if(cookie != null) {
-        isAuthorized = true;
-    }
-
     const decodedCookie = userService.decodeCookie(cookie);
 
-    res.json(isAuthorized);
-});
-
-router.get('/info', async (req, res) => {
-    const cookie = req.cookies.auth;
-
-    if(cookie === undefined){
-        return res.json('Log in');
-    }
-    const decodedCookie = userService.decodeCookie(cookie);
     const user = await userService.getUserFromCookie(decodedCookie);
 
     res.json(user);
 });
-
-// router.post('/all', async (req, res) => {
-//     const {userId, email} = await userService.getAll();
-
-//     console.log(userId, email);
-// });
 
 module.exports = router;

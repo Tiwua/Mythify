@@ -13,18 +13,18 @@ export class AuthenticateComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userService.getUser().subscribe({
+    this.userService.checkIfUserIsLogged().subscribe({
       next: (user) => {
-        this.userService.userRefresh = user
-        console.log(this.userService.userRefresh._id);
-        this.isAuthenticating = true;
-      },
-      error: () => {
+        this.userService.user = user;
+        console.log(this.userService.user._id)
         this.isAuthenticating = false;
       },
-      complete: () => {
-        this.isAuthenticating = false;
-      },
-    });
+        error: () => {
+          this.isAuthenticating = false;
+        },
+        complete: () => {
+          this.isAuthenticating = false;
+        },
+      }); 
   }
 }

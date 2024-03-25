@@ -7,7 +7,7 @@ export interface User{
 }
 
 export interface UserAuth{
-    id: string;
+    _id: string;
     email: string;
     username: string;
     password: string;

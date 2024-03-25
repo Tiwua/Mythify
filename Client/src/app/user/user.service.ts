@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { UserAuth, UserBasic } from '../types/user';
+import { UserAuth } from '../types/user';
 import { BehaviorSubject, Subscribable, Subscription, tap } from 'rxjs';
 
 @Injectable({
@@ -12,17 +12,16 @@ export class UserService implements OnDestroy {
   private user$ = this.user$$.asObservable();
 
   user: UserAuth | undefined;
-  userRefresh: UserBasic | undefined;
   USER_KEY = '[user]';
 
   subscription: Subscription;
 
   get isLogged(): boolean {
-    return !!this.user || !!this.userRefresh;
+    return !!this.user;
   }
 
   getUserId(): string | undefined {
-    return this.user?.id || this.userRefresh?._id;
+    return this.user?._id;
   }
   
 
@@ -52,8 +51,6 @@ export class UserService implements OnDestroy {
   }
 
   logout() {
-    console.log(`${this.apiUrl}/users/logout`);
-    
       return this.http.post<UserAuth>(`${this.apiUrl}/users/logout`, {})
         .pipe(
           tap(() => {
@@ -64,11 +61,6 @@ export class UserService implements OnDestroy {
   checkIfUserIsLogged(){
     return this.http.get<UserAuth>(`${this.apiUrl}/users/auth`)
     .pipe(tap((user) => this.user$$.next(user)));;
-  }
-
-  getUser() {
-      console.log(`${this.apiUrl}/users/info`)
-      return this.http.get<UserBasic>(`${this.apiUrl}/users/info`).pipe(tap((user) => this.userRefresh!));
   }
 
   ngOnDestroy(): void {
