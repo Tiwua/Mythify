@@ -14,6 +14,8 @@ export class UserService implements OnDestroy {
   user: UserAuth | undefined;
   USER_KEY = '[user]';
 
+  subscription: Subscription;
+
   get isLogged(): boolean {
     return !!this.user;
   }
@@ -24,7 +26,7 @@ export class UserService implements OnDestroy {
   
 
   private apiUrl: string 
-  constructor(private http: HttpClient, private subscription: Subscription) { 
+  constructor(private http: HttpClient) { 
     this.subscription = this.user$.subscribe(user => {
       this.user = user;
     });

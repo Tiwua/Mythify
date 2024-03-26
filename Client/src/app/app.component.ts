@@ -10,8 +10,9 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnDestroy {
   title = 'Client';
   footerLoaded: boolean = false;
+  routerSubscription: Subscription;
 
-  constructor(private router: Router, private routerSubscription: Subscription) {
+  constructor(private router: Router,) {
     this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.footerLoaded = false;
