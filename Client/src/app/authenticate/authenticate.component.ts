@@ -16,7 +16,6 @@ export class AuthenticateComponent implements OnInit {
     this.userService.checkIfUserIsLogged().subscribe({
       next: (user) => {
         this.userService.user = user;
-        console.log(this.userService.user._id)
         this.isAuthenticating = false;
       },
         error: () => {

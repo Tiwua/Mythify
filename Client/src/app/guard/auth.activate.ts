@@ -10,7 +10,6 @@ export class AuthActivate {
     constructor(private userService: UserService, private router: Router){}
 
     canActivate(): boolean {
-        console.log(this.userService.isLogged);
         if (this.userService.isLogged) {
           return true;
         } else {
