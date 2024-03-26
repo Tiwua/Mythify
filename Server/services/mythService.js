@@ -29,4 +29,6 @@ exports.create = async (userId, mythData) => {
 
 exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(3);
 
+exports.edit = async (mythData, userId) => await Myth.findByIdAndUpdate(mythData.mythId)
+
 exports.like = async (mythId, userId) => await Myth.findByIdAndUpdate(mythId, { $push: {favoriteList: userId }});

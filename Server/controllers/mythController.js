@@ -30,6 +30,15 @@ router.get('/:mythId/details', async (req, res) => {
     res.json(myth);
 });
 
+router.post('/:mythId/edit', async (req, res) => {
+    const mythData = req.body;
+    const userId = req.body.ownerId;
+    
+    await mythService.editMyth(mythData, userId);
+
+    res.json({ message: "Successful in editing the myth" });
+});
+
 router.post('/:mythId/like', async (req, res) => {
     const mythId = req.params.mythId;
     const userId = req.userId;
