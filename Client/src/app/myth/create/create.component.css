@@ -67,6 +67,9 @@ input::placeholder {
     color: #7a7a7a;
     font-style: bold;
 }
+.error {
+    color: white;
+}
 
 @media screen and (max-width: 576px) {
     .container {

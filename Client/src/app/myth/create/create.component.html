@@ -4,19 +4,69 @@
     <form [formGroup]="form" (ngSubmit)="createMyth()">
         <label for="title">Title</label><br>
         <input type="text" id="title" name="title" formControlName="title" placeholder="Your Myth's Title"><br>
-        
+
+        <ng-container *ngIf="form.get('title')?.touched">
+            <p class="error" *ngIf="form.get('title')?.errors?.['required']">
+                Title is required!
+            </p>
+    
+            <p class="error" *ngIf="form.get('title')?.errors?.['minlength']">
+                Title must be at least 3 characters!
+            </p>
+          </ng-container>
+          
         <label for="origin">Origin</label><br>
         <input type="text" id="origin" name="origin" formControlName="origin" placeholder="Your Myth's Origin" required><br>
-        
+
+        <ng-container *ngIf="form.get('origin')?.touched">
+            <p class="error" *ngIf="form.get('origin')?.errors?.['required']">
+                Origin is required!
+            </p>
+    
+            <p class="error" *ngIf="form.get('origin')?.errors?.['minlength']">
+                Title must be at least 5 characters!
+            </p>
+          </ng-container>
         <label for="timeline">Timeline</label><br>
+
         <input type="text" id="timeline" name="timeline" formControlName="timeline" placeholder="Your Myth's Timeline" required><br>
-        
+
+        <ng-container *ngIf="form.get('timeline')?.touched">
+            <p class="error" *ngIf="form.get('timeline')?.errors?.['required']">
+                Timeline is required!
+            </p>
+    
+            <p class="error" *ngIf="form.get('timeline')?.errors?.['minlength']">
+                Timeline must be at least 5 characters!
+            </p>
+          </ng-container>
+
         <label for="description">Description</label><br>
         <textarea id="description" name="description" rows="4" formControlName="description" placeholder="Your Myth's Description" required></textarea><br>
-        
+
+        <ng-container *ngIf="form.get('description')?.touched">
+            <p class="error" *ngIf="form.get('description')?.errors?.['required']">
+                Description is required!
+            </p>
+    
+            <p class="error" *ngIf="form.get('description')?.errors?.['minlength']">
+                Description must be at least 10 characters!
+            </p>
+          </ng-container>
+          
         <label for="image">Image URL</label><br>
-        <input type="text" id="image" name="image" formControlName="image" placeholder="Your Myth's Image Url" required><br><br>
-        
+        <input type="text" id="image" name="image" formControlName="image" placeholder="Your Myth's Image Url" required pattern="^(https?://)"><br><br>
+
+        <ng-container *ngIf="form.get('image')?.touched">
+            <p class="error" *ngIf="form.get('image')?.errors?.['required']">
+                Image Url is required!
+            </p>
+    
+            <p class="error" *ngIf="form.get('image')?.errors?.['minlength']">
+                Invalid Image Url
+            </p>
+          </ng-container>
+
         <button type="submit">Add Myth</button>
     </form>
 </div>

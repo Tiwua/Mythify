@@ -15,8 +15,8 @@ export class CreateComponent {
     title: ['', [Validators.required, Validators.minLength(3)]],
     origin: ['', [Validators.required, Validators.minLength(5)]],
     timeline: ['', [Validators.required, Validators.minLength(5)]],
-    description: ['', [Validators.required, Validators.minLength(5)]],
-    image: ['', [Validators.required, Validators.minLength(5)]]
+    description: ['', [Validators.required, Validators.minLength(10)]],
+    image: ['', [Validators.required, Validators.minLength(10)]]
   });
 
   constructor(
