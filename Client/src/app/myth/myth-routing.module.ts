@@ -11,7 +11,7 @@ const routes: Routes = [
   { path:'myths', children: [
     { path:'all', component: AllComponent },
     { path:'create', component: CreateComponent, canActivate: [AuthActivate] },
-    { path:'edit', component: EditComponent, canActivate: [AuthActivate] },
+    { path:':mythId/edit', component: EditComponent, canActivate: [AuthActivate] },
     { path: ':mythId/details', component: CurrentMythComponent, pathMatch: 'full', },
   ]}
 ]

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Myth } from 'src/app/types/myth';
 import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-current-myth',
@@ -12,11 +13,13 @@ import { Subscription } from 'rxjs';
 export class CurrentMythComponent implements OnInit, OnDestroy {
   myth = {} as Myth;
   alignmentClass: string = '';
+  isOwner: boolean = false;
 
   subscription: Subscription;
   constructor(
     private apiService: ApiService, 
-    private activeRoute: ActivatedRoute){
+    private activeRoute: ActivatedRoute,
+    private userService: UserService){
       
        this.subscription = new Subscription;
     }
@@ -25,8 +28,12 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
     this.activeRoute.params.subscribe((data) => {
       const mythId = data['mythId'];
       this.subscription = this.apiService.getMyth(mythId).subscribe((myth) => {
+
         this.myth = myth;
         this.alignmentClass = this.isLeftAligned();
+        if(this.userService.user?._id === myth['ownerId']){
+          this.isOwner = true;
+        }
       });
     });
   }
