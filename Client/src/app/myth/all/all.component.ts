@@ -15,14 +15,14 @@ export class AllComponent implements OnInit, OnDestroy {
   mythsPerPage = 3;
   currentPage = 1;
   visiblePages = 3;
-  subscription: Subscription;
 
   get totalPages(): number {
     return Math.ceil(this.myths.length / this.mythsPerPage);
   }
 
-  constructor(private apiService: ApiService) {
-    this.subscription = new Subscription();
+  constructor(
+    private apiService: ApiService,
+    private subscription: Subscription) {
   }
 
   ngOnInit(): void {
