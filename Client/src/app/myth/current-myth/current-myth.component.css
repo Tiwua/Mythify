@@ -102,6 +102,7 @@
     text-align: center;
     color: red;
     font-size: 50px;
+    margin-bottom: 150px;
 }
   
   .likes-count::before {

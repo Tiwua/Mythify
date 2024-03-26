@@ -4,26 +4,28 @@ const userService = require('../services/userService');
 
 router.post('/register', async (req, res) => {
     const userData = req.body;
-
     const accessToken = await userService.register(userData);
-    
+    const cookie = userService.decodeCookie(accessToken);
+    const user = await userService.getUserFromCookie(cookie);
 
     res.cookie("auth", accessToken, {
         httpOnly: true,
         secure: true,
         sameSite: 'none',
-    }).json({ message: 'User registered successfully', id: (await (userService.getUserId(email))).toString()});
+    }).json(user);
 });
 
 router.post('/login', async (req, res) => {
     const userData = req.body;
-    const {email} = userData;
     const accessToken = await userService.login(userData);
+    const cookie = userService.decodeCookie(accessToken);
+    const user = await userService.getUserFromCookie(cookie);
+
     res.cookie("auth", accessToken, {
         httpOnly: true,
         secure: true,
         sameSite: 'none',
-    }).json({ message: 'User logged in successfully', id: (await (userService.getUserIdFromEmail(email))).toString()});
+    }).json(user);
 });
 
 router.post('/logout', async (req, res) => {

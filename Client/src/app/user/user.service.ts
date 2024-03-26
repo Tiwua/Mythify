@@ -38,6 +38,8 @@ export class UserService implements OnDestroy {
     .pipe(
       tap((user) => {
         this.user$$.next(user);
+        this.user = user;
+        console.log(this.user);
     }));
   }
 
@@ -47,6 +49,8 @@ export class UserService implements OnDestroy {
     .pipe(
       tap((user) => {
         this.user$$.next(user);
+        this.user = user;
+        console.log(this.user);
     })); 
   }
 
