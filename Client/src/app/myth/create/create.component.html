@@ -16,7 +16,7 @@
           </ng-container>
           
         <label for="origin">Origin</label><br>
-        <input type="text" id="origin" name="origin" formControlName="origin" placeholder="Your Myth's Origin" required><br>
+        <input type="text" id="origin" name="origin" formControlName="origin" placeholder="Your Myth's Origin"><br>
 
         <ng-container *ngIf="form.get('origin')?.touched">
             <p class="error" *ngIf="form.get('origin')?.errors?.['required']">
@@ -29,7 +29,7 @@
           </ng-container>
         <label for="timeline">Timeline</label><br>
 
-        <input type="text" id="timeline" name="timeline" formControlName="timeline" placeholder="Your Myth's Timeline" required><br>
+        <input type="text" id="timeline" name="timeline" formControlName="timeline" placeholder="Your Myth's Timeline"><br>
 
         <ng-container *ngIf="form.get('timeline')?.touched">
             <p class="error" *ngIf="form.get('timeline')?.errors?.['required']">
@@ -42,7 +42,7 @@
           </ng-container>
 
         <label for="description">Description</label><br>
-        <textarea id="description" name="description" rows="4" formControlName="description" placeholder="Your Myth's Description" required></textarea><br>
+        <textarea id="description" name="description" rows="4" formControlName="description" placeholder="Your Myth's Description"></textarea><br>
 
         <ng-container *ngIf="form.get('description')?.touched">
             <p class="error" *ngIf="form.get('description')?.errors?.['required']">
@@ -55,7 +55,7 @@
           </ng-container>
           
         <label for="image">Image URL</label><br>
-        <input type="text" id="image" name="image" formControlName="image" placeholder="Your Myth's Image Url" required pattern="^(https?://)"><br><br>
+        <input type="text" id="image" name="image" formControlName="image" placeholder="Your Myth's Image Url" pattern="^(https?://)"><br><br>
 
         <ng-container *ngIf="form.get('image')?.touched">
             <p class="error" *ngIf="form.get('image')?.errors?.['required']">

@@ -32,10 +32,8 @@ router.get('/:mythId/details', async (req, res) => {
 
 router.post('/:mythId/edit', async (req, res) => {
     const mythData = req.body;
-    const userId = req.body.ownerId;
-    
-    await mythService.editMyth(mythData, userId);
-
+    const mythId = req.body.mythId;
+    await mythService.edit(mythId, mythData);
     res.json({ message: "Successful in editing the myth" });
 });
 

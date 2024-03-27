@@ -1,4 +1,4 @@
-import { Directive, Input } from '@angular/core';
+import { Directive } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
 import { emailValidator } from '../utils/emailValidator';
 
@@ -13,7 +13,7 @@ import { emailValidator } from '../utils/emailValidator';
   ],
 })
 export class EmailValidatorDirective implements Validator {
-  constructor() { }
+  constructor() {}
 
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
       const validatorFn = emailValidator();

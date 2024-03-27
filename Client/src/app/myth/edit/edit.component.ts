@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
 
@@ -15,10 +15,12 @@ export class EditComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private route: ActivatedRoute){
+    private route: ActivatedRoute,
+    private router: Router){
       this.subscription = new Subscription();
     }
 
+  mythId!: string | null;  
   title!: string;
   origin!: string;
   timeline!: string;
@@ -35,9 +37,8 @@ export class EditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.route.paramMap.subscribe(params => {
-      const mythId = params.get('mythId');
-
-      const myth = this.apiService.getMyth(mythId!).subscribe((myth) => {
+      this.mythId = params.get('mythId');
+      const myth = this.apiService.getMyth(this.mythId!).subscribe((myth) => {
 
         this.form.patchValue({
           title: myth.title,
@@ -50,13 +51,21 @@ export class EditComponent implements OnInit, OnDestroy {
     });
   }
 
-  editMyth(){
-    if(this.form.invalid){
-      return;
-    }
-    console.log(this.form.value);
+  editMyth(): void{
 
-    console.log('hello');
+    this.form.statusChanges.subscribe(status => {
+      if (status === 'VALID') {
+        console.error('Form is valid.');
+      } else {
+        console.error('Form is invalid.');
+      }
+    });
+
+    const { title, origin, timeline, description, image } = this.form.value
+
+    this.apiService.editMyth(this.mythId!, title!, origin!, timeline!, description!, image!).subscribe(() => {
+        this.router.navigate([`/myths/${this.mythId}/details`])
+    });
   }
 
   ngOnDestroy(): void {

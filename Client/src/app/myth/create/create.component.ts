@@ -25,13 +25,17 @@ export class CreateComponent {
     private apiService: ApiService, 
     private router: Router) {}
 
-    createMyth() {
-    const userId = this.userService.getUserId();
-    console.log(userId);
-    
-    if(this.form.invalid){
-      return;
-    }
+    createMyth(): void {
+      
+      this.form.statusChanges.subscribe(status => {
+        if (status === 'VALID') {
+          console.error('Form is valid.');
+        } else {
+          console.error('Form is invalid.');
+        }
+      });
+      
+      const userId = this.userService.getUserId();
 
       const { title, origin, timeline, description, image } = this.form.value;
       this.apiService.createMyth(title!, origin!, timeline!, description!, image!, userId!).subscribe(() => {
