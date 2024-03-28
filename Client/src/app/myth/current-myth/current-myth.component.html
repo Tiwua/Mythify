@@ -7,10 +7,12 @@
         </div>
         <div class="buttons">
             <div *ngIf="!isOwner">
-                <button class="btn-like">Like</button>
+                <button [routerLink]="'/myths/' + myth._id + '/like'"class="btn-like">Like</button>
             </div>
-            <button class="btn-delete">Delete</button>
-            <button [routerLink]="'/myths/' + myth._id + '/edit'" class="btn-edit">Edit</button>
+            <div *ngIf="isOwner">
+                <button [routerLink]="'/myths/' + myth._id + '/delete'"class="btn-delete">Delete</button>
+                <button [routerLink]="'/myths/' + myth._id + '/edit'" class="btn-edit">Edit</button>
+            </div>
         </div>
         <div class="likes-count"> {{ myth.favoriteList?.length || 0 }}</div>
 
