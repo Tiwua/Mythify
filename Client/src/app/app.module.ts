@@ -10,12 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { ErrorComponent } from './error/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AuthenticateComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
