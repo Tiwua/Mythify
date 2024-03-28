@@ -17,6 +17,8 @@ export class AllComponent implements OnInit, OnDestroy {
   visiblePages = 3;
   subscription: Subscription;
 
+  isLoading: boolean = true;
+
   get totalPages(): number {
     return Math.ceil(this.myths.length / this.mythsPerPage);
   }
@@ -27,6 +29,9 @@ export class AllComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 3000);
     this.fetchMyths();
   }
 

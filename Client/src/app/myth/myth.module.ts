@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LikeComponent } from './like/like.component';
 import { DeleteComponent } from './delete/delete.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -21,6 +22,7 @@ import { DeleteComponent } from './delete/delete.component';
     DeleteComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
