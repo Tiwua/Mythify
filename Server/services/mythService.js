@@ -1,4 +1,5 @@
 const Myth = require('../models/Myth');
+const User = require('../models/User');
 
 exports.getAll = async (limit) => {
 
@@ -22,11 +23,17 @@ exports.getMostPopular = async (limit) => {
 exports.getOneById = async (mythId) => await Myth.findById(mythId);
 
 exports.create = async (userId, mythData) => {
-    await Myth.create({ ownerId: userId, ...mythData});
+    const createdMyth = await Myth.create({ ownerId: userId, ...mythData});
+    await User.findByIdAndUpdate(userId, { $push: { createdMyths: createdMyth._id }});
+    
 }
 
 exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(3);
 
 exports.edit = async (mythId, mythData) => await Myth.findByIdAndUpdate(mythId, mythData, { runValidators: true } )
 
-exports.like = async (mythId, userId) => await Myth.findByIdAndUpdate(mythId, { $push: {favoriteList: userId }});
+exports.like = async (mythId, userId) => {
+    console.log(mythId, userId);
+    await Myth.findByIdAndUpdate(mythId, { $push: { favoriteList: userId } });
+}
+exports.delete = async (mythId) =>  await Myth.findByIdAndDelete(mythId);

@@ -37,9 +37,14 @@ router.get('/auth', async (req, res) => {
     const cookie = req.cookies.auth;
     const decodedCookie = userService.decodeCookie(cookie);
 
-    const user = await userService.getUserFromCookie(decodedCookie);
+    try{
 
-    res.json(user);
+        const user = await userService.getUserFromCookie(decodedCookie);
+        res.json(user);
+    } catch (error){
+        throw new Error("Invalid user, please login and try again")
+    }
+
 });
 
 module.exports = router;

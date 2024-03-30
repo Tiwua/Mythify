@@ -33,7 +33,13 @@ export class ApiService {
   }
 
   editMyth(mythId: string, title: string, origin: string, timeline: string, description: string, image: string) {
-    console.log(`${this.apiUrl}/myths/${mythId}/edit`)
     return this.http.post<Myth>(`${this.apiUrl}/myths/${mythId}/edit`, { mythId, title, origin, timeline, description, image });
+  }
+
+  deleteMyth(mythId: string) {
+    return this.http.post<Myth>(`${this.apiUrl}/myths/${mythId}/delete`, { mythId });
+  }
+  likeMyth(mythId: string, userId: string) {
+    return this.http.post<Myth>(`${this.apiUrl}/myths/${mythId}/like`, { mythId, userId, });
   }
 }

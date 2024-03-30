@@ -7,10 +7,10 @@
         </div>
         <div class="buttons">
             <div *ngIf="!isOwner">
-                <button [routerLink]="'/myths/' + myth._id + '/like'"class="btn-like">Like</button>
+                <button (click)="like(myth._id)"class="btn-like">Like</button>
             </div>
             <div *ngIf="isOwner">
-                <button [routerLink]="'/myths/' + myth._id + '/delete'"class="btn-delete">Delete</button>
+                <button (click)="delete(myth._id)"class="btn-delete">Delete</button>
                 <button [routerLink]="'/myths/' + myth._id + '/edit'" class="btn-edit">Edit</button>
             </div>
         </div>

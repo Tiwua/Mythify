@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
 router.post('/create', async (req, res) => {
     const newMyth = req.body;
     const userId = req.body.ownerId;
+    console.log(userId);
     const myth = await mythService.create(userId, newMyth);
 
     res.json(myth);
@@ -39,11 +40,18 @@ router.post('/:mythId/edit', async (req, res) => {
 
 router.post('/:mythId/like', async (req, res) => {
     const mythId = req.params.mythId;
-    const userId = req.userId;
-    
-    await mythService.likeMyth(mythId, userId);
+    const userId = req.body.userId;
+    await mythService.like(mythId, userId);
 
     res.json({ message: "Successful in liking a myth" });
+});
+
+router.post('/:mythId/delete', async (req, res) => {
+    const mythId = req.params.mythId;
+    console.log(mythId);
+    await mythService.delete(mythId);
+
+    res.json({ message: "Myth deleted" });
 });
 
 module.exports = router;
