@@ -54,4 +54,10 @@ router.post('/:mythId/delete', async (req, res) => {
     res.json({ message: "Myth deleted" });
 });
 
+router.get('/latest', async (req, res) => {
+    const myths = await mythService.getLatest();
+
+    res.json(myths);
+});
+
 module.exports = router;

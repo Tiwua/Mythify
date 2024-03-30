@@ -28,7 +28,7 @@ exports.create = async (userId, mythData) => {
     
 }
 
-exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(3);
+exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(4);
 
 exports.edit = async (mythId, mythData) => await Myth.findByIdAndUpdate(mythId, mythData, { runValidators: true } )
 

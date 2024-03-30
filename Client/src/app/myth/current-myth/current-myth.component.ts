@@ -34,7 +34,7 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
         this.myth = myth;
         this.alignmentClass = this.isLeftAligned();
         this.userId = this.userService.user?._id;
-        console.log(this.userId);
+        console.log(myth);
         if(this.userId! === myth['ownerId']){
           this.isOwner = true;
         }
@@ -43,11 +43,8 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
   }
 
   like(mythId: string): void{
-    console.log(this.userId);
-
-    console.log(mythId);
     this.apiService.likeMyth(mythId, this.userId!).subscribe(() => {
-
+      this.router.navigate([`myths/${mythId}/details`]);
     })
   }
   delete(mythId: string): void{
