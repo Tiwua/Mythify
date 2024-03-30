@@ -33,7 +33,6 @@ exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(3);
 exports.edit = async (mythId, mythData) => await Myth.findByIdAndUpdate(mythId, mythData, { runValidators: true } )
 
 exports.like = async (mythId, userId) => {
-    console.log(mythId, userId);
     await Myth.findByIdAndUpdate(mythId, { $push: { favoriteList: userId } });
 }
 exports.delete = async (mythId) =>  await Myth.findByIdAndDelete(mythId);
