@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   getLatestFourMyths(){
-    return this.http.get<Myth>(`${this.apiUrl}/myths/latest`);
+    return this.http.get<Myth[]>(`${this.apiUrl}/myths/latest`);
   }
 
   getMyth(mythId: string){

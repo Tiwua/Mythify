@@ -10,33 +10,10 @@
     <button type="button" routerLink="/myths/all">Explore</button>
   </div>
   <div class="col">
-    <div class="card">
-      <h5>Western Desert</h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit accusamus
-        ab saepe? Quisquam modi.
-      </p>
-    </div>
-    <div class="card">
-      <h5>Western Desert</h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit accusamus
-        ab saepe? Quisquam modi.
-      </p>
-    </div>
-    <div class="card">
-      <h5>Western Desert</h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit accusamus
-        ab saepe? Quisquam modi.
-      </p>
-    </div>
-    <div class="card">
-      <h5>Western Desert</h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit accusamus
-        ab saepe? Quisquam modi.
-      </p>
-    </div>
+    <div [routerLink]="'/myths/' + myth._id + '/details'" *ngFor="let myth of myths" class="card" [style.background-image]="'url(' + myth.image + ')'">
+      <h5>{{ myth.title }}</h5>
+      <p>{{ myth.description.slice(0, 5) }}</p>
+  </div>
+  
   </div>
 </div>

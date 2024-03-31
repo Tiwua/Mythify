@@ -61,8 +61,6 @@ export class AllComponent implements OnInit, OnDestroy {
     this.subscription = this.apiService.getMyths().subscribe((myths) => {
       this.myths = myths;
       this.paginateMyths();
-    }, (error) => {   
-      console.error('An error occurred:', error['statusText']);
     });
   }
 
@@ -71,7 +69,6 @@ export class AllComponent implements OnInit, OnDestroy {
     const endIdx = startIdx + this.mythsPerPage;
     this.paginatedMyths = this.myths.slice(startIdx, endIdx);
 
-    // Update pagination state to trigger fade animation
     this.updatePaginationState();
   }
 

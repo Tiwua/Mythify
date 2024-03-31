@@ -38,7 +38,6 @@ button{
     box-sizing: border-box;
     cursor: pointer;
     margin: 10px 15px;
-    background-image: url('https://img.freepik.com/free-photo/dragons-fantasy-artificial-intelligence-image_23-2150400884.jpg');
     background-position: center;
     background-size: cover;
     transition: transform 0.5s;
@@ -51,5 +50,7 @@ h5{
     color: #fff;
     text-shadow: 0 0 5px #999;
     font-size: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
