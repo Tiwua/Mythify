@@ -24,6 +24,10 @@ export class ApiService {
     return this.http.get<Myth[]>(url);
   }
 
+  getLatestFourMyths(){
+    return this.http.get<Myth>(`${this.apiUrl}/myths/latest`);
+  }
+
   getMyth(mythId: string){
     return this.http.get<Myth>(`${this.apiUrl}/myths/${mythId}/details`);
   }
@@ -49,6 +53,6 @@ export class ApiService {
   }
 
   getLikesCount(mythId: string) {   
-    return this.http.get<Myth>(`${this.apiUrl}/myths/${mythId}/likes-count`);
+    return this.http.get<number>(`${this.apiUrl}/myths/${mythId}/likes-count`);
   }
 }

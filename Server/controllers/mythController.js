@@ -42,7 +42,6 @@ router.post('/:mythId/like', async (req, res) => {
     const mythId = req.params.mythId;
     const userId = req.body.userId;
     await mythService.like(mythId, userId);
-    console.log('hello')
 
     res.json({ message: "Successful in liking a myth" });
 });
@@ -51,17 +50,15 @@ router.post('/:mythId/dislike', async (req, res) => {
     const mythId = req.params.mythId;
     const userId = req.body.userId;
     await mythService.dislike(mythId, userId);
-    console.log('hello')
 
     res.json({ message: "Successful in disliking a myth" });
 });
 
 router.get('/:mythId/likes-count', async (req, res) => {
     const mythId = req.params.mythId;
-    console.log(mythId);
     const myth = await mythService.likesCount(mythId);
 
-    res.json(myth);
+    res.json(myth.favoriteList.length);
 });
 
 router.post('/:mythId/delete', async (req, res) => {

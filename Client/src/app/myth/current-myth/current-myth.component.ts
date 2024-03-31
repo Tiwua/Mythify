@@ -30,7 +30,7 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
   alignmentClass: string = '';
   isOwner: boolean = false;
   hasLiked: boolean = false;
-  likesCount: any;
+  likesCount: number = 0;
   liked: boolean = false;
 
   toggleLike() {
@@ -53,7 +53,7 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
       this.subscription = this.apiService.getMyth(mythId).subscribe((myth) => {
         
         this.myth = myth;
-        this.likesCount = this.updateLikesCount();
+        this.likesCount = this.updateLikesCount()!;
         this.alignmentClass = this.isLeftAligned();
         this.hasLiked = this.myth.favoriteList.some((id) => this.userService.user?._id == id);
         if(this.userService.user?._id! === myth['ownerId']){
@@ -68,7 +68,7 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
 
   like(mythId: string): void{ 
     this.apiService.likeMyth(mythId, this.userService.user?._id!).subscribe(() => {
-      this.likesCount = this.updateLikesCount();
+      this.likesCount = this.updateLikesCount()!;
       this.hasLiked = true;
       this.toggleLike();
     });
@@ -85,7 +85,7 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
     console.log(mythId);
     
     this.apiService.dislikeMyth(mythId, this.userService.user?._id!).subscribe(() => {
-      this.likesCount = this.updateLikesCount();
+      this.likesCount = this.updateLikesCount()!;
       this.hasLiked = false;
       this.toggleLike();
     });
@@ -93,7 +93,7 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
 
   updateLikesCount() {
     this.apiService.getLikesCount(this.myth._id).subscribe(num => {
-      this.likesCount = num.favoriteList.length;
+      this.likesCount = num;
     });
   }
   

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { UserService } from '../user/user.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  constructor(private apiService: ApiService) {}
+
   ngOnInit(): void {
+
   }
 
   ngOnDestroy(): void {
