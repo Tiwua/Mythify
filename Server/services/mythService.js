@@ -32,7 +32,12 @@ exports.getLatest = () => Myth.find().sort({createdAt: -1}).limit(4);
 
 exports.edit = async (mythId, mythData) => await Myth.findByIdAndUpdate(mythId, mythData, { runValidators: true } )
 
-exports.like = async (mythId, userId) => {
+exports.like = async (mythId, userId) => 
     await Myth.findByIdAndUpdate(mythId, { $push: { favoriteList: userId } });
-}
+
+exports.dislike = async (mythId, userId) => 
+    await Myth.findByIdAndUpdate(mythId, { $pull: { favoriteList: userId } });
+
 exports.delete = async (mythId) =>  await Myth.findByIdAndDelete(mythId);
+
+exports.likesCount = async (mythId) => await Myth.findById(mythId);

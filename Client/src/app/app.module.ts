@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { ErrorComponent } from './error/error/error.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ErrorComponent } from './error/error/error.component';
     MythRoutingModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

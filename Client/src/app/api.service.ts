@@ -39,7 +39,16 @@ export class ApiService {
   deleteMyth(mythId: string) {
     return this.http.post<Myth>(`${this.apiUrl}/myths/${mythId}/delete`, { mythId });
   }
+
   likeMyth(mythId: string, userId: string) {
     return this.http.post<Myth>(`${this.apiUrl}/myths/${mythId}/like`, { mythId, userId, });
+  }
+
+  dislikeMyth(mythId: string, userId: string) {
+    return this.http.post<Myth>(`${this.apiUrl}/myths/${mythId}/dislike`, { mythId, userId, });
+  }
+
+  getLikesCount(mythId: string) {   
+    return this.http.get<Myth>(`${this.apiUrl}/myths/${mythId}/likes-count`);
   }
 }

@@ -1,27 +1,27 @@
 <div *ngIf="isLoading">
-  <app-loader/>
+  <app-loader></app-loader>
 </div>
 
-  <div *ngIf="!isLoading" class="grid-container">
-    <div *ngFor="let myth of paginatedMyths" class="card">
-      <div  class="title-container">
-        <h5>{{ myth.title }}</h5>
+<div *ngIf="!isLoading" class="grid-container">
+  <div *ngFor="let myth of paginatedMyths" class="card">
+    <div class="title-container">
+      <h5>{{ myth.title }}</h5>
+    </div>
+    <div class="image-container" [@fadeIn]>
+      <img [routerLink]="'/myths/' + myth._id + '/details'" [src]="myth.image" alt="Myth Image">
+      <div class="description">
+        <p><strong>Origin:</strong> {{ myth.origin }}</p>
+        <p>{{ myth.description }}</p>
       </div>
-      <div class="image-container">
-        <img [routerLink]="'/myths/' + myth._id + '/details'" [src]="myth.image" alt="Myth Image">
-        <div class="description">
-          <p><strong>Origin:</strong> {{ myth.origin }}</p>
-          <p>{{ myth.description }}</p>
-        </div>
     </div>
   </div>
-  
-  <div class="pagination-controls">
-    <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
-    <ng-container *ngFor="let page of totalPagesArray()">
-    <button (click)="goToPage(page)" [disabled]="currentPage === page">{{ page }}</button>
-  </ng-container>
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-</div>
 
+  <div class="pagination-controls" [@fadeIn]>
+    <button (click)="prevPage()" [disabled]="currentPage === 1" [@fadeState]="paginationState">Previous</button>
+    <ng-container *ngFor="let page of totalPagesArray()">
+      <button (click)="goToPage(page)" [disabled]="currentPage === page" [@fadeState]="paginationState">{{ page }}</button>
+    </ng-container>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages" [@fadeState]="paginationState">Next</button>
   </div>
+  
+  
