@@ -13,7 +13,7 @@ export class AuthActivate {
         if (this.userService.isLogged) {
           return true;
         } else {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/user/login']);
           return false;
         }
     }
