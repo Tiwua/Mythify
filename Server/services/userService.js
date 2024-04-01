@@ -48,8 +48,13 @@ exports.getUser = async (userId) => {
 exports.decodeCookie = (cookie) => {
     return jwt.decode(cookie);
 }
+exports.getUserFromCookie = async (cookie) => {
+    if (!cookie) {
+        return null;
+    }
+    return await User.findById(cookie._id, { password: 0, __v: 0 });
+};
 
-exports.getUserFromCookie = async (cookie) => await User.findById(cookie._id, { password: 0, __v:0 })
 
 function generateAccessToken(user) {
     
