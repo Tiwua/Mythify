@@ -39,7 +39,7 @@ export class CreateComponent {
 
       const { title, origin, timeline, description, image } = this.form.value;
       this.apiService.createMyth(title!, origin!, timeline!, description!, image!, userId!).subscribe(() => {
-          this.router.navigate(['/myths/all'])
+          this.router.navigate(['home'])
       });
   }
 }

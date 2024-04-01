@@ -32,6 +32,7 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
   hasLiked: boolean = false;
   likesCount: number = 0;
   liked: boolean = false;
+  isLogged: boolean = false;
 
   toggleLike() {
     this.liked = !this.liked;
@@ -61,7 +62,10 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
         }
         
         this.hasLiked = this.myth.favoriteList.some((id) => this.userService.user?._id == id);
-        console.log(this.hasLiked);
+
+        if(this.userService.user) {
+          this.isLogged = true;
+        }
       });
     });
   }
@@ -82,7 +86,6 @@ export class CurrentMythComponent implements OnInit, OnDestroy {
   }
 
   dislike(mythId: string): void{
-    console.log(mythId);
     
     this.apiService.dislikeMyth(mythId, this.userService.user?._id!).subscribe(() => {
       this.likesCount = this.updateLikesCount()!;

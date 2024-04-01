@@ -42,7 +42,7 @@ router.get('/auth', async (req, res) => {
         const user = await userService.getUserFromCookie(decodedCookie);
         res.json(user);
     } catch (error){
-        throw new Error("Invalid user, please login and try again")
+        console.error(error);
     }
 
 });

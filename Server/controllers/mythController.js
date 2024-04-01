@@ -11,11 +11,22 @@ router.get('/', async (req, res) => {
 router.post('/create', async (req, res) => {
     const newMyth = req.body;
     const userId = req.body.ownerId;
-    console.log(userId);
-    const myth = await mythService.create(userId, newMyth);
+    try {
+        const user = await userService.getUserFromCookie(req);
 
-    res.json(myth);
+        if (!user) {
+            res.status(401).send("Unauthorized access");
+        }
+
+        const myth = await mythService.create(userId, newMyth);
+        res.json(myth);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("An error occurred");
+    }
 });
+
+
 
 router.get('/all', async (req, res) => {
     const limit = Number(req.query.limit) || 0;

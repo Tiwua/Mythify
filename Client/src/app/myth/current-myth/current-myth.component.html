@@ -5,7 +5,7 @@
             <p><strong>Origin:</strong> {{ myth.origin }}</p>
             <p>{{ myth.description }}</p>
         </div>
-        <div class="buttons">
+        <div  *ngIf="isLogged" class="buttons">
             <div *ngIf="!isOwner">
                 <div *ngIf="hasLiked">     
                     <button (click)="dislike(myth._id)" class="btn-like">Dislike</button>

@@ -8,8 +8,7 @@ export class UserActivate implements CanActivate {
 
     constructor(private userService: UserService, private router: Router) {}
 
-    canActivate(): boolean {
-        console.log(this.userService.isLogged);
+    canActivate(): boolean {            
         if (this.userService.isLogged) {
             this.router.navigate(['/home']);
             return false;
