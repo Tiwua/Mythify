@@ -1,0 +1,224 @@
+[{
+  "_id": {
+    "$oid": "65e8ca695485821e9a522ad8"
+  },
+  "title": "The Fountain of Youth",
+  "origin": "Various Mythologies",
+  "description": "The Fountain of Youth is a mythical spring that is said to restore the youth of anyone who drinks from or bathes in its waters. Legends of such a fountain have been told in various cultures throughout history.",
+  "image": "https://www.miss-ocean.com/Feed_The_World_Campaign/Statue_Fountain_Youth_Miss_Ocean_Figurehead/Pictures_Fountain_Youth_Statue_Of/Fountain-Of-Youth-Fiji-Natural-Artisian-Water.jpg",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-30T19:12:31.659Z"
+  },
+  "__v": 0,
+  "timeline": "Ancient times"
+},
+{
+  "_id": {
+    "$oid": "65e8cb2f412a5d02b7ee9f64"
+  },
+  "title": "Medusa's Gaze",
+  "origin": "Greek Mythology",
+  "timeline": "Ancient times",
+  "description": "In Greek mythology, Medusa was a Gorgon with snakes for hair, and her gaze could turn anyone who looked at her into stone. She was eventually slain by Perseus, who used a mirror to avoid her gaze.",
+  "image": "https://i1.sndcdn.com/artworks-a1ldzVNJyQhmIMX1-MGMJvw-t500x500.jpg",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T21:23:56.470Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8cd00412a5d02b7ee9f65"
+  },
+  "title": "Phoenix",
+  "origin": "Various Mythologies",
+  "timeline": "Ancient times",
+  "description": "The Phoenix is a mythical bird that cyclically regenerates or is reborn from its own ashes. It symbolizes renewal, resurrection, and immortality in many mythological traditions, including Egyptian, Greek, and Chinese.",
+  "image": "https://dreamersia.com/wp-content/uploads/2023/06/Hong_Hy_the_legendary_phoenix_majestic_bright_vibrant_sacred_go_aa9b74f0-9e4e-4b44-9ad0-2e42c2733cfe.png",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T21:14:45.579Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8cdb8412a5d02b7ee9f66"
+  },
+  "title": "Loch Ness Monster",
+  "origin": "Scottish Folklore",
+  "timeline": "Unknown",
+  "description": "The Loch Ness Monster, often referred to as Nessie, is a legendary aquatic creature said to inhabit Loch Ness in Scotland. Despite numerous sightings and expeditions, no conclusive evidence of its existence has been found.",
+  "image": "https://www.thescotlandkiltcompany.co.uk/cdn/shop/articles/1_3b572868-d9ea-4b25-97f9-9cc8c15e9527_1024x1024.png?v=1636649584",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T21:30:00.899Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8ce17412a5d02b7ee9f67"
+  },
+  "title": "Dragon",
+  "origin": "Various Mythologies",
+  "timeline": "Ancient times",
+  "description": "Dragons are legendary creatures found in the myths and folklore of various cultures around the world. They are often depicted as large, serpentine creatures with wings and the ability to breathe fire. In many myths, dragons are associated with wisdom, strength, and power, while in others, they are feared as symbols of destruction and chaos.",
+  "image": "https://i.pinimg.com/736x/01/66/af/0166afc2d2caf47637ad9989e500acb4.jpg",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8ceaa412a5d02b7ee9f68"
+  },
+  "title": "Kraken",
+  "origin": "Norse Mythology",
+  "timeline": "Ancient times",
+  "description": "The Kraken is a legendary sea monster said to dwell off the coasts of Norway and Greenland. Described as a giant cephalopod, it was believed to be capable of dragging ships and sailors beneath the waves.",
+  "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/35ccd493-e70d-48bd-a386-05e540120997/dfp6ejx-21bd45db-a3ec-4ef7-aa9d-28100d90a7e6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzM1Y2NkNDkzLWU3MGQtNDhiZC1hMzg2LTA1ZTU0MDEyMDk5N1wvZGZwNmVqeC0yMWJkNDVkYi1hM2VjLTRlZjctYWE5ZC0yODEwMGQ5MGE3ZTYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.9tPYMSyFZxsU43QdkEWv4-ntrkxFCrDFCloU3mAceYE",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T19:56:25.909Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8cf51412a5d02b7ee9f69"
+  },
+  "title": "Thor",
+  "origin": "Norse Mythology",
+  "timeline": "Ancient times",
+  "description": "Thor is the Norse god of thunder, associated with strength, thunderstorms, and protection. He is depicted as a powerful warrior with a hammer named Mjolnir, which he uses to defend Asgard, the realm of the gods, and Midgard, the realm of humans, from various threats. Thor is revered for his bravery, loyalty, and sense of justice, making him one of the most prominent figures in Norse mythology.",
+  "image": "https://qph.cf2.quoracdn.net/main-qimg-dadb32f57220183516525d3cb796a8d7-lq",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T20:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T20:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8cfd1412a5d02b7ee9f6a"
+  },
+  "title": "Yeti",
+  "origin": "Himalayan Folklore",
+  "timeline": "Ancient times",
+  "description": "The Yeti, also known as the Abominable Snowman, is a legendary ape-like creature said to inhabit the Himalayan mountains of Nepal and Tibet. Described as a large, shaggy bipedal creature, the Yeti is often depicted as a mysterious and elusive figure, with sightings and reports dating back centuries. While some believe the Yeti to be a real undiscovered species, others consider it a mythical creature woven into the fabric of Himalayan folklore, embodying the wilderness and mystery of the mountainous region.",
+  "image": "https://images.squarespace-cdn.com/content/v1/5d2935d76499400001905606/1590528251726-N4MB5WU8MWTGNUI026TT/image-asset.jpeg",
+  "favoriteList": [
+    {
+      "$oid": "660c0a96e65e42daf3e2df55"
+    }
+  ],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T20:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-02T13:41:15.493Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8d09c412a5d02b7ee9f6b"
+  },
+  "title": "Chupacabra",
+  "origin": "Latin American Folklore",
+  "timeline": "Late 20th century",
+  "description": "The Chupacabra is a legendary creature from Latin American folklore, particularly in regions such as Puerto Rico, Mexico, and the United States. It is said to be a blood-sucking creature that preys on livestock, draining them of their blood. Descriptions of the Chupacabra vary, with some depicting it as a reptilian creature with spikes along its back and others describing it as a more canine-like animal. Sightings and reports of the Chupacabra have sparked fear and fascination in communities across the Americas, with some attributing mysterious livestock deaths to its presence.",
+  "image": "https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2NodXBhY2FicmFqcGcucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo4Mjh9fX0=",
+  "favoriteList": [],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T20:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T20:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8d309412a5d02b7ee9f6c"
+  },
+  "title": "Wyvern",
+  "origin": "European Folklore",
+  "timeline": "Ancient tmes",
+  "description": "The Wyvern is a mythical creature from European folklore, often depicted as a winged reptilian creature with two legs, a barbed tail, and a dragon-like appearance. Unlike traditional dragons, which typically have four legs, wyverns are portrayed with only two. Legends of wyverns have persisted for centuries, with tales of encounters and sightings passed down through generations.",
+  "image": "https://p.turbosquid.com/ts-thumb/GI/If6LJ6/q1GZgzjf/greenwyvern2/png/1603859850/1920x1080/fit_q87/b83b728fc830cb1781c1c3ee747d8f6d021fba85/greenwyvern2.jpg",
+  "favoriteList": [
+    {
+      "$oid": "660c0a96e65e42daf3e2df55"
+    },
+    {
+      "$oid": "660bf7cf478670dc41418fa7"
+    },
+    {
+      "$oid": "65fe0cbf7d8a0b98ca170a8b"
+    }
+  ],
+  "ownerId": {
+    "$oid": "65e4f5d739a62ed0a0329ff3"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T20:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-02T14:56:28.314Z"
+  },
+  "__v": 0
+}]
