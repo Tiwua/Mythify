@@ -15,13 +15,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Hello World!'
-    });
-});
-
-
 app.use(routes);
 
 mongoose.connect('mongodb://localhost:27017/Mythify')

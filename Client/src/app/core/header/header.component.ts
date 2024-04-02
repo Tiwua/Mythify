@@ -13,7 +13,7 @@ export class HeaderComponent {
     return this.userService.isLogged;
   }
 
-
+  
   logout() {
     this.userService.logout().subscribe({next: () => {
       this.router.navigate(['/home']);

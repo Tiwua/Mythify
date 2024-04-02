@@ -9,12 +9,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-    const newMyth = req.body;
-    const userId = req.body.ownerId;
     try {
-        const user = await userService.getUserFromCookie(req);
-
-        if (!user) {
+        const newMyth = req.body;
+        const userId = req.body.ownerId;
+        if (!userId) {
             res.status(401).send("Unauthorized access");
         }
 

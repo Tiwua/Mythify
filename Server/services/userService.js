@@ -14,15 +14,8 @@ exports.register = async (userData) => {
 
 exports.login = async (userData) => {
     const user = await User.findOne({ email: userData.email});
-    if(!user){
-        throw new Error("Invalid login!");
-    }
 
-    const isValid = await bcrypt.compare(userData.password, user.password);
-
-    if(!isValid){
-        throw new Error('Invalid login');
-    }
+    bcrypt.compare(userData.password, user.password);
 
     return generateAccessToken(user);
 }
@@ -48,13 +41,19 @@ exports.getUser = async (userId) => {
 exports.decodeCookie = (cookie) => {
     return jwt.decode(cookie);
 }
+
 exports.getUserFromCookie = async (cookie) => {
+
+    return await User.findById(cookie._id, { password: 0, __v: 0, createdMyths: 0 });
+};
+
+exports.createGuard = async (cookie) => {
     if (!cookie) {
         return null;
     }
+    
     return await User.findById(cookie._id, { password: 0, __v: 0 });
-};
-
+}
 
 function generateAccessToken(user) {
     

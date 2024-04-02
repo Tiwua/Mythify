@@ -20,6 +20,7 @@ router.post('/login', async (req, res) => {
     const accessToken = await userService.login(userData);
     const cookie = userService.decodeCookie(accessToken);
     const user = await userService.getUserFromCookie(cookie);
+    console.log(user);
 
     res.cookie("auth", accessToken, {
         httpOnly: true,
@@ -35,14 +36,18 @@ router.post('/logout', async (req, res) => {
 
 router.get('/auth', async (req, res) => {
     const cookie = req.cookies.auth;
-    const decodedCookie = userService.decodeCookie(cookie);
-
-    try{
-
+    
+    try {
+        if(cookie == null) {
+            return res.status(401).send("Unauthorized access");
+        }
+        
+        const decodedCookie = userService.decodeCookie(cookie);
         const user = await userService.getUserFromCookie(decodedCookie);
         res.json(user);
-    } catch (error){
+    } catch (error) {
         console.error(error);
+        res.status(500).send("An error occurred");
     }
 
 });

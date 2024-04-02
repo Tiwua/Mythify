@@ -5,7 +5,15 @@
 				<h2>Register</h2>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Username" formControlName="username" required>
+						<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Your Username" formControlName="username" required minlength="5">
+						<ng-container *ngIf="form.get('username')?.touched">
+							<p class="error" *ngIf="form.get('username')?.errors?.['required']">
+								Username is required!
+							</p>
+							<p class="error-username" *ngIf="form.get('username')?.errors?.['minlength']">
+								Username is not valid!
+							</p>
+						</ng-container>
 					</div>
 					<div class="form-row">
 						<input type="text" name="your-email" id="your-email" class="input-text" formControlName="email" placeholder="Your Email" required formControlName="email">
