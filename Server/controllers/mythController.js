@@ -40,9 +40,9 @@ router.get('/:mythId/details', async (req, res) => {
     res.json(myth);
 });
 
-router.post('/:mythId/edit', async (req, res) => {
+router.put('/:mythId/edit', async (req, res) => {
     const mythData = req.body;
-    const mythId = req.body.mythId;
+    const mythId = req.params.mythId;
     await mythService.edit(mythId, mythData);
     res.json({ message: "Successful in editing the myth" });
 });
@@ -70,7 +70,7 @@ router.get('/:mythId/likes-count', async (req, res) => {
     res.json(myth.favoriteList.length);
 });
 
-router.post('/:mythId/delete', async (req, res) => {
+router.delete('/:mythId/delete', async (req, res) => {
     const mythId = req.params.mythId;
     await mythService.delete(mythId);
 
