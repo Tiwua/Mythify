@@ -3,11 +3,13 @@ import { UserService } from '../user/user.service';
 import { ApiService } from '../api.service';
 import { Myth } from '../types/myth';
 import { Subscription } from 'rxjs';
+import { blurToNormalAnimation, fallFromSkyAnimation, buttonAppearAnimation , fadeInAnimation  } from '../common/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [fallFromSkyAnimation, buttonAppearAnimation, fadeInAnimation, blurToNormalAnimation]
 })
 export class HomeComponent implements OnInit, OnDestroy {
 

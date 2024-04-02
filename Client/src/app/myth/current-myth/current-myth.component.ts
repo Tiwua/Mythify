@@ -4,24 +4,17 @@ import { ApiService } from 'src/app/api.service';
 import { Myth } from 'src/app/types/myth';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/user/user.service';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {likeAnimation, slideFromBottomAnimation, zoomInAnimation } from '../common/animations';
 
 @Component({
   selector: 'app-current-myth',
   templateUrl: './current-myth.component.html',
   styleUrls: ['./current-myth.component.css'],
   animations: [
-    trigger('likeAnimation', [
-      state('liked', style({
-        transform: 'scale(1.1) rotate(360deg)',
-        fontSize: '70px'
-      })),
-      state('disliked', style({
-        transform: 'scale(1) rotate(0deg)',
-        fontSize: '50px'
-      })),
-      transition('liked <=> disliked', animate('200ms ease-out'))
-    ])
+    likeAnimation,
+    slideFromBottomAnimation,
+    zoomInAnimation,
+
   ]
 })
 

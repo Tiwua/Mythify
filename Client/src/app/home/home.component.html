@@ -1,17 +1,16 @@
 <div class="row">
   <div class="col">
-    <h1>Mithify</h1>
-    <p> 
-       Dive into a world of ancient folklore and legends that have influenced cultures for centuries. 
-       Explore Mythify's curated myths for a glimpse into the wisdom and imagination of ancient civilizations.
+    <h1 [@fallFromSkyAnimation]>Mithify</h1>
+    <p [@fadeInAnimation]> 
+      Dive into a world of ancient folklore and legends that have influenced cultures for centuries. 
+      Explore Mythify's curated myths for a glimpse into the wisdom and imagination of ancient civilizations.
     </p>
-
-    <button type="button" routerLink="/myths/all">Explore</button>
-  </div>
-  <div class="col">
-    <div [routerLink]="'/myths/' + myth._id + '/details'" *ngFor="let myth of myths" class="card" [style.background-image]="'url(' + myth.image + ')'">
-      <h5>{{ myth.title }}</h5>
+    <button type="button" routerLink="/myths/all" [@buttonAppearAnimation]>Explore</button>
   </div>
   
+  <div class="col" [@blurToNormalAnimation]>
+    <div [routerLink]="'/myths/' + myth._id + '/details'" *ngFor="let myth of myths" class="card" [style.background-image]="'url(' + myth.image + ')'">
+      <h5>{{ myth.title }}</h5>
+    </div>
   </div>
-</div>
+</div>  

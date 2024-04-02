@@ -1,5 +1,5 @@
 <div [ngClass]="alignmentClass" class="details-container">
-    <div class="text-container">
+    <div class="text-container" [@slideFromBottomAnimation]>
         <h2>{{ myth.title }}</h2>
         <div class="details">   
             <p><strong>Origin:</strong> {{ myth.origin }}</p>
@@ -23,7 +23,7 @@
         <div [@likeAnimation]="liked ? 'liked' : 'disliked'" class="likes-count"> {{ likesCount }}</div>
 
     </div>
-    <div class="image-container">
+    <div class="image-container" [@zoomInAnimation]>
         <img [src]="myth.image" alt="Myth Image">
     </div>
 </div>
