@@ -1,35 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { emailValidator } from 'src/app/shared/utils/emailValidator';
 import { matchPasswords } from 'src/app/shared/utils/matchPasswords';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { fadeInAnimation } from 'src/app/common/animations';
+import { FormService } from 'src/app/shared/form.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css', '../common/post-form.css']
+  styleUrls: ['./register.component.css', '../common/post-form.css'],
+  animations: [fadeInAnimation]
 })
 export class RegisterComponent  {
 
-  form = this.formBuilder.group({
-    username: ['', [Validators.required, Validators.minLength(5)]],
-    email: ['', [Validators.required, emailValidator()]],
-    passwordGroup: this.formBuilder.group({
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
-    }, 
-    {
-      validators: [matchPasswords('password', 'confirmPassword')]
-    }),
-  });
+  form: FormGroup;
 
   get passwordGroup(){
     return this.form.get('passwordGroup');
   }
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
-
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private formService: FormService) {
+    this.form = this.formService.createRegisterForm();
   }
 
   register(): void{

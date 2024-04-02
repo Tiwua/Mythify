@@ -1,6 +1,6 @@
 
-<h1>Add Myth</h1>
-<div class="container">
+<h1>Add Myth</h1>   
+<div class="container" [@formAnimation]>
     <form [formGroup]="form" (ngSubmit)="createMyth()">
         <label for="title">Title</label><br>
         <input type="text" id="title" name="title" formControlName="title" placeholder="Your Myth's Title"><br>
@@ -24,7 +24,7 @@
             </p>
     
             <p class="error" *ngIf="form.get('origin')?.errors?.['minlength']">
-                Title must be at least 5 characters!
+                Origin must be at least 5 characters!
             </p>
           </ng-container>
         <label for="timeline">Timeline</label><br>
@@ -55,7 +55,7 @@
           </ng-container>
           
         <label for="image">Image URL</label><br>
-        <input type="text" id="image" name="image" formControlName="image" placeholder="Your Myth's Image Url" pattern="^(https?://)"><br><br>
+        <input type="text" id="image" name="image" formControlName="image" placeholder="Your Myth's Image Url" pattern="^\s*(http|https):\/\/.*"><br><br>
 
         <ng-container *ngIf="form.get('image')?.touched">
             <p class="error" *ngIf="form.get('image')?.errors?.['required']">

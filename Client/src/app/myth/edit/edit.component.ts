@@ -1,22 +1,28 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
+import { formAnimation } from '../common/animations';
+import { FormService } from 'src/app/shared/form.service';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  styleUrls: ['./edit.component.css'],
+  animations: [formAnimation]
 })
 export class EditComponent implements OnInit, OnDestroy {
-
   subscription: Subscription
+  form: FormGroup;
+  
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
     private route: ActivatedRoute,
-    private router: Router){
+    private router: Router,
+    private formService: FormService){
+      this.form = formService.createMythForm();
       this.subscription = new Subscription();
     }
 
@@ -27,13 +33,6 @@ export class EditComponent implements OnInit, OnDestroy {
   description!: string;
   image!: string;
 
-  form = this.formBuilder.group({
-    title: ['', [Validators.required, Validators.minLength(3)]],
-    origin: ['', [Validators.required, Validators.minLength(5)]],
-    timeline: ['', [Validators.required, Validators.minLength(5)]],
-    description: ['', [Validators.required, Validators.minLength(10)]],
-    image: ['', [Validators.required, Validators.minLength(10)]]
-  });
 
   ngOnInit(): void {
     this.subscription = this.route.paramMap.subscribe(params => {
@@ -53,13 +52,10 @@ export class EditComponent implements OnInit, OnDestroy {
 
   editMyth(): void{
 
-    this.form.statusChanges.subscribe(status => {
-      if (status === 'VALID') {
-        console.error('Form is valid.');
-      } else {
-        console.error('Form is invalid.');
-      }
-    });
+    if(this.form.invalid){
+      console.log('no')
+      return;
+    }
 
     const { title, origin, timeline, description, image } = this.form.value
 

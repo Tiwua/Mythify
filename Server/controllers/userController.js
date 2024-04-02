@@ -20,7 +20,6 @@ router.post('/login', async (req, res) => {
     const accessToken = await userService.login(userData);
     const cookie = userService.decodeCookie(accessToken);
     const user = await userService.getUserFromCookie(cookie);
-    console.log(user);
 
     res.cookie("auth", accessToken, {
         httpOnly: true,

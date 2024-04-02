@@ -1,39 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { UserService } from 'src/app/user/user.service';
+import { formAnimation } from '../common/animations';
+import { FormService } from 'src/app/shared/form.service';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  styleUrls: ['./create.component.css'],
+  animations: [formAnimation]
 })
 export class CreateComponent {
 
-  form = this.formBuilder.group({
-    title: ['', [Validators.required, Validators.minLength(3)]],
-    origin: ['', [Validators.required, Validators.minLength(5)]],
-    timeline: ['', [Validators.required, Validators.minLength(5)]],
-    description: ['', [Validators.required, Validators.minLength(10)]],
-    image: ['', [Validators.required, Validators.minLength(10)]]
-  });
+  form: FormGroup
 
   constructor(
     private formBuilder: FormBuilder, 
     private userService: UserService, 
     private apiService: ApiService, 
-    private router: Router) {}
+    private router: Router,
+    private formService: FormService) {
+      this.form = formService.createMythForm()
+    }
 
     createMyth(): void {
       
-      this.form.statusChanges.subscribe(status => {
-        if (status === 'VALID') {
-          console.error('Form is valid.');
-        } else {
-          console.error('Form is invalid.');
-        }
-      });
+      if(this.form.invalid){
+        return;
+      }
       
       const userId = this.userService.getUserId();
 
